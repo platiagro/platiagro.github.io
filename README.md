@@ -54,8 +54,14 @@ server:
 1. Clone the repo locally.
 
     ```
-    git clone --recurse-submodules --depth 1 https://github.com/platiagro/platiagro.github.io.git
+    git clone https://github.com/platiagro/platiagro.github.io.git
     cd platiagro.github.io/
+    ```
+
+1. Get local copies of the project submodules so you can build and run your site locally:
+
+    ```
+    git submodule update --init --recursive
     ```
 
 1. Start your website server. Make sure you run this command from the
