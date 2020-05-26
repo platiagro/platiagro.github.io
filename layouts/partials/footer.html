@@ -1,0 +1,23 @@
+{{ $links := .Site.Params.links }}
+<footer class="-bg-200 py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-12 text-center py-2">
+        <img height="60" src="/images/cpqd.png" />
+        <img height="60" src="/images/rnp.png" />
+        <img height="60" src="/images/mctic.png" />
+      </div>
+    </div>
+  </div>
+</footer>
+{{ define "footer-links-block" }}
+<ul class="list-inline mb-0">
+  {{ range . }}
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="{{ .name }}" aria-label="{{ .name }}">
+    <a class="text-dark" target="_blank" href="{{ .url }}">
+      <i class="{{ .icon }}"></i>
+    </a>
+  </li>
+  {{ end }}
+</ul>
+{{ end }}

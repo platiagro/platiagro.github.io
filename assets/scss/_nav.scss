@@ -28,7 +28,7 @@
 }
 
 .td-navbar {
-  background: $bg-custom;
+  background: $bg-gradient-custom;
   min-height: 4rem;
   margin: 0;
   z-index: 32;
@@ -52,25 +52,17 @@
     .navbar-logo {
       svg {
         display: inline-block;
-        position: absolute;
-        top: 0;
-        left: 26px;
-        z-index: 33;
-        padding: 10px;
-        height: 95px;
+        height: 40px;
+        width: 77px;
         border-top: none;
-
-        @include media-breakpoint-down(md) {
-          left: 16px;
-          width: 80px;
-          height: auto;
-          padding: 6px;
-        }
+        padding: 0 10px;
       }
     }
 
-    :not(.navbar-logo) {
-      display: none;
+    span {
+      &:not(.navbar-logo) {
+        text-transform: none !important;
+      }
     }
 
     .text-uppercase {
@@ -93,6 +85,7 @@
   }
 
   .td-search-input {
+    background-color: #ffffff;
     border: none;
 
     @include placeholder {

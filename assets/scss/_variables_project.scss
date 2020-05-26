@@ -7,7 +7,9 @@ Add styles or override variables from the theme here.
 
 // Theme colors
 
-$primary: #2a5e22;
+$primary: #3f6601;
 $secondary: #fff;
 
-$bg-custom: linear-gradient(270deg, #014e65 0%, #3f6601 100%);
+$bg-gradient-custom: linear-gradient(270deg, #014e65 0%, #3f6601 100%);
+
+$bg-gray-light: #f2f2f2
