@@ -1,0 +1,24 @@
+{
+  "name": "platiagro-docs",
+  "version": "0.0.1",
+  "description": "Technical documentation for PlatIAgro.",
+  "main": "none.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/platiagro/platiagro.github.io.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/platiagro/platiagro.github.io/issues"
+  },
+  "homepage": "https://github.com/platiagro/platiagro.github.io#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^9.4.6",
+    "postcss-cli": "^5.0.1"
+  }
+}
