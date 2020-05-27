@@ -53,7 +53,7 @@
       svg {
         display: inline-block;
         height: 40px;
-        width: 77px;
+        width: 174px;
         border-top: none;
         padding: 0 10px;
       }
@@ -61,6 +61,7 @@
 
     span {
       &:not(.navbar-logo) {
+        display: none;
         text-transform: none !important;
       }
     }
