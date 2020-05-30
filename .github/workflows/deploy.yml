@@ -1,7 +1,7 @@
 name: Build and Deploy
 on:
   push:
-    branches: [feature/*]
+    branches: [docsy]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
