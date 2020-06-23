@@ -11,4 +11,4 @@ Guias passo-a-passo de como utilizar a PlatIAgro.
 ### Introdução à PlatIAgro
 
 Construa um fluxo de machine learning de ponta-a-ponta na PlatIAgro.<br>
-[Veja aqui](https://platiagro.github.io/platiagro/)
+[Veja aqui](https://platiagro.github.io/tutorials/)
