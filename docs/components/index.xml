@@ -1,6 +1,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PlatIAgro – Componentes Tecnológicos</title><link>https://platiagro.github.io/docs/components/</link><description>Recent content in Componentes Tecnológicos on PlatIAgro</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://platiagro.github.io/docs/components/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Visão Geral</title><link>https://platiagro.github.io/docs/components/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/components/overview/</guid><description>
 &lt;p>O diagrama a seguir mostra os diversos componentes que compõem a PlatIAgro:&lt;/p>
-&lt;p>&lt;img src="https://platiagro.github.io/images/platiagro-components.png" alt="Diagrama de componentes da PlatIAgro.">&lt;/p></description></item><item><title>Docs: Kubeflow</title><link>https://platiagro.github.io/docs/components/kubeflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/components/kubeflow/</guid><description>
+&lt;p>&lt;img src="https://platiagro.github.io/images/platiagro-components.png" alt="Diagrama de componentes da PlatIAgro.">&lt;/p>
+&lt;h3 id="web-uihttpsgithubcomplatiagroweb-ui">&lt;a href="https://github.com/platiagro/web-ui">Web UI&lt;/a>&lt;/h3>
+&lt;p>Interface gráfica da PlatIAgro que dá acesso às funcionalidades da plataforma.&lt;/p>
+&lt;h3 id="projectshttpsgithubcomplatiagroprojects">&lt;a href="https://github.com/platiagro/projects">Projects&lt;/a>&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;h3 id="pipelineshttpsgithubcomplatiagropipelines">&lt;a href="https://github.com/platiagro/pipelines">Pipelines&lt;/a>&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;h3 id="datasetshttpsgithubcomplatiagrodatasets">&lt;a href="https://github.com/platiagro/datasets">Datasets&lt;/a>&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;h3 id="kubeflow-pipelineshttpsgithubcomkubeflowpipelines">&lt;a href="https://github.com/kubeflow/pipelines">Kubeflow Pipelines&lt;/a>&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;h3 id="seldon-corehttpsgithubcomseldonioseldon-core">&lt;a href="https://github.com/SeldonIO/seldon-core">Seldon Core&lt;/a>&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;h3 id="mysql">MySQL&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;h3 id="minio">MinIO&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;h3 id="istio">Istio&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p></description></item><item><title>Docs: Kubeflow</title><link>https://platiagro.github.io/docs/components/kubeflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/components/kubeflow/</guid><description>
 &lt;p>Kubeflow é uma platforma para auxiliar o desenvolvimento e implantação de aplicações de machine learning (ML).&lt;/p>
 &lt;h3 id="veja-mais-detalhes-na-documentação-do-kubeflowhttpswwwkubefloworgdocsstartedkubeflow-overview">Veja mais detalhes &lt;a href="https://www.kubeflow.org/docs/started/kubeflow-overview/">na documentação do Kubeflow.&lt;/a>&lt;/h3>
 &lt;h3 id="componentes-do-kubeflow">Componentes do Kubeflow&lt;/h3>

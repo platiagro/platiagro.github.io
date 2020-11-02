@@ -14,7 +14,25 @@
 &lt;h3 id="gerenciamento-e-monitoramento">Gerenciamento e monitoramento&lt;/h3>
 &lt;p>Para avaliar em tempo real os modelos de IA já implantados (em utilização), a PlatIAgro fornece uma tarefa nativa de monitoramento.&lt;/p></description></item><item><title>Docs: Visão Geral</title><link>https://platiagro.github.io/docs/components/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/components/overview/</guid><description>
 &lt;p>O diagrama a seguir mostra os diversos componentes que compõem a PlatIAgro:&lt;/p>
-&lt;p>&lt;img src="https://platiagro.github.io/images/platiagro-components.png" alt="Diagrama de componentes da PlatIAgro.">&lt;/p></description></item><item><title>Docs: Instalação da PlatIAgro</title><link>https://platiagro.github.io/docs/getting-started/install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/install/</guid><description>
+&lt;p>&lt;img src="https://platiagro.github.io/images/platiagro-components.png" alt="Diagrama de componentes da PlatIAgro.">&lt;/p>
+&lt;h3 id="web-uihttpsgithubcomplatiagroweb-ui">&lt;a href="https://github.com/platiagro/web-ui">Web UI&lt;/a>&lt;/h3>
+&lt;p>Interface gráfica da PlatIAgro que dá acesso às funcionalidades da plataforma.&lt;/p>
+&lt;h3 id="projectshttpsgithubcomplatiagroprojects">&lt;a href="https://github.com/platiagro/projects">Projects&lt;/a>&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;h3 id="pipelineshttpsgithubcomplatiagropipelines">&lt;a href="https://github.com/platiagro/pipelines">Pipelines&lt;/a>&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;h3 id="datasetshttpsgithubcomplatiagrodatasets">&lt;a href="https://github.com/platiagro/datasets">Datasets&lt;/a>&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;h3 id="kubeflow-pipelineshttpsgithubcomkubeflowpipelines">&lt;a href="https://github.com/kubeflow/pipelines">Kubeflow Pipelines&lt;/a>&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;h3 id="seldon-corehttpsgithubcomseldonioseldon-core">&lt;a href="https://github.com/SeldonIO/seldon-core">Seldon Core&lt;/a>&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;h3 id="mysql">MySQL&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;h3 id="minio">MinIO&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;h3 id="istio">Istio&lt;/h3>
+&lt;p>&amp;hellip;&lt;/p></description></item><item><title>Docs: Instalação da PlatIAgro</title><link>https://platiagro.github.io/docs/getting-started/install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/install/</guid><description>
 &lt;h3 id="instalação-em-um-cluster-kubernetes">Instalação em um cluster Kubernetes&lt;/h3>
 &lt;p>Para continuar é necessário ter um Cluster Kubernetes, &lt;a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl&lt;/a> e &lt;a href="https://github.com/kubeflow/kfctl/releases">kfctl&lt;/a> configurados para acessar o cluster.&lt;/p>
 &lt;p>&lt;strong>ATENÇÃO: Atualmente, as versões 1.14 and 1.15 do Kubernetes são as únicas com suporte.&lt;/strong>&lt;/p>
