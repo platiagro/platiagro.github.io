@@ -26,7 +26,13 @@ cd ${KF_DIR}
 kfctl apply -V -f ${CONFIG_URI}
 &lt;/code>&lt;/pre>&lt;p>Então visite https://[LOAD-BALANCER-HOST]/&lt;/p>
 &lt;h3 id="instalação-no-google-kubernetes-engine-gke">Instalação no Google Kubernetes Engine (GKE)&lt;/h3>
-&lt;p>Visite &lt;a href="https://platiagro-gcp.herokuapp.com/">https://platiagro-gcp.herokuapp.com/&lt;/a> e siga as instruções.&lt;/p></description></item><item><title>Docs: Kubeflow</title><link>https://platiagro.github.io/docs/components/kubeflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/components/kubeflow/</guid><description/></item><item><title>Docs: Interface Web</title><link>https://platiagro.github.io/docs/getting-started/first-access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/first-access/</guid><description>
+&lt;p>Visite &lt;a href="https://platiagro-gcp.herokuapp.com/">https://platiagro-gcp.herokuapp.com/&lt;/a> e siga as instruções.&lt;/p></description></item><item><title>Docs: Kubeflow</title><link>https://platiagro.github.io/docs/components/kubeflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/components/kubeflow/</guid><description>
+&lt;p>Kubeflow é uma platforma para auxiliar o desenvolvimento e implantação de aplicações de machine learning (ML).&lt;/p>
+&lt;h3 id="veja-mais-detalhes-na-documentação-do-kubeflowhttpswwwkubefloworgdocsstartedkubeflow-overview">Veja mais detalhes &lt;a href="https://www.kubeflow.org/docs/started/kubeflow-overview/">na documentação do Kubeflow.&lt;/a>&lt;/h3>
+&lt;h3 id="componentes-do-kubeflow">Componentes do Kubeflow&lt;/h3>
+&lt;p>&lt;img src="https://platiagro.github.io/images/kubeflow-overview-platform-diagram.png" alt="Diagrama de componentes do Kubeflow.">&lt;/p>
+&lt;h3 id="kubeflow-central-dashboard">Kubeflow Central Dashboard&lt;/h3>
+&lt;p>&lt;img src="https://platiagro.github.io/images/kubeflow-central-ui.png" alt="Interface do Kubeflow.">&lt;/p></description></item><item><title>Docs: Interface Web</title><link>https://platiagro.github.io/docs/getting-started/first-access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/first-access/</guid><description>
 &lt;p>A seguir estão algumas capturas de tela de interfaces da PlatIAgro.&lt;/p>
 &lt;h3 id="lista-de-projetos">Lista de projetos&lt;/h3>
 &lt;p>&lt;img src="https://platiagro.github.io/images/list-projects.png" alt="Lista de projetos.">&lt;/p>
@@ -39,4 +45,18 @@ kfctl apply -V -f ${CONFIG_URI}
 &lt;h3 id="lista-de-tarefas">Lista de tarefas&lt;/h3>
 &lt;p>&lt;img src="https://platiagro.github.io/images/list-tasks.png" alt="Lista de tarefas.">&lt;/p>
 &lt;h3 id="jupyterlab">JupyterLab&lt;/h3>
-&lt;p>&lt;img src="https://platiagro.github.io/images/jupyterlab.png" alt="Código fonte da tarefa no JupyterLab.">&lt;/p></description></item><item><title>Docs: Jupyter Notebooks</title><link>https://platiagro.github.io/docs/components/jupyter/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/components/jupyter/</guid><description/></item><item><title>Docs: Seldon Core</title><link>https://platiagro.github.io/docs/components/seldon/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/components/seldon/</guid><description/></item></channel></rss>
+&lt;p>&lt;img src="https://platiagro.github.io/images/jupyterlab.png" alt="Código fonte da tarefa no JupyterLab.">&lt;/p></description></item><item><title>Docs: Jupyter Notebooks</title><link>https://platiagro.github.io/docs/components/jupyter/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/components/jupyter/</guid><description>
+&lt;p>JupyterLab é uma interface web para trabalhar com Jupyter Notebooks.&lt;br>
+Com o Jupyter é possível rodar código-fonte de forma interativa (Markdown, Python, R, LaTeX, etc.).&lt;/p>
+&lt;h3 id="veja-mais-detalhes-na-documentação-do-jupyterlabhttpsjupyterlabreadthedocsioenstablegetting_startedoverviewhtml">Veja mais detalhes &lt;a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html">na documentação do JupyterLab.&lt;/a>&lt;/h3>
+&lt;h3 id="crie-e-edite-tarefas-no-jupyterlab">Crie e edite tarefas no Jupyterlab&lt;/h3>
+&lt;p>&lt;img src="https://platiagro.github.io/images/jupyterlab.png" alt="Tela inicial no Jupyterlab.">&lt;/p>
+&lt;h3 id="declare-parâmetros-de-tarefas">Declare parâmetros de tarefas&lt;/h3>
+&lt;p>&lt;img src="https://platiagro.github.io/images/jupyterlab-parameters.png" alt="Modal de declaração de parâmetros de tarefas no Jupyterlab.">&lt;/p>
+&lt;h3 id="faça-upload-de-datasets-para-usar-em-tarefas">Faça upload de datasets para usar em tarefas&lt;/h3>
+&lt;p>&lt;img src="https://platiagro.github.io/images/jupyterlab-datasets.png" alt="Modal de upload de datasets no Jupyterlab.">&lt;/p></description></item><item><title>Docs: Seldon Core</title><link>https://platiagro.github.io/docs/components/seldon/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/components/seldon/</guid><description>
+&lt;p>Seldon Core, é um &lt;em>framework open-source&lt;/em> que facilita a implantação de modelos de no Kubernetes.&lt;br>
+Com o Seldon é possível organizar um fluxo sequencial de modelos, além de gerenciar sua escalabilidade e atualizações.&lt;/p>
+&lt;h3 id="veja-mais-detalhes-na-documentação-do-seldon-corehttpsdocsseldonioprojectsseldon-coreenlatestworkflowoverviewhtml">Veja mais detalhes &lt;a href="https://docs.seldon.io/projects/seldon-core/en/latest/workflow/overview.html">na documentação do Seldon Core.&lt;/a>&lt;/h3>
+&lt;h3 id="prepare-tarefas-para-implantação">Prepare Tarefas para Implantação&lt;/h3>
+&lt;p>&lt;img src="https://platiagro.github.io/images/seldon-language-wrapper.png" alt="Diagrama da preparação de modelos.">&lt;/p></description></item></channel></rss>
