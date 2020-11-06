@@ -13,6 +13,8 @@
 &lt;p>Platforma para construção e execução de fluxos de &lt;em>machine learning&lt;/em> com base em containers Docker.&lt;/p>
 &lt;h3 id="seldon-corehttpsgithubcomseldonioseldon-core">&lt;a href="https://github.com/SeldonIO/seldon-core">Seldon Core&lt;/a>&lt;/h3>
 &lt;p>Plataforma para implantação de modelos de &lt;em>machine learning&lt;/em> em serviços REST prontos para production.&lt;/p>
+&lt;h3 id="jupyterhttpsjupyterorg">&lt;a href="https://jupyter.org/">Jupyter&lt;/a>&lt;/h3>
+&lt;p>Ambiente interativo para desenvolvimento de código e análise de dados.&lt;/p>
 &lt;h3 id="mysqlhttpswwwmysqlcom">&lt;a href="https://www.mysql.com/">MySQL&lt;/a>&lt;/h3>
 &lt;p>Sistema de gerenciamento de banco de dados relacional.&lt;/p>
 &lt;h3 id="miniohttpsminio">&lt;a href="https://min.io/">MinIO&lt;/a>&lt;/h3>
