@@ -5,14 +5,16 @@
 &lt;p>Interface gráfica da PlatIAgro que dá acesso às funcionalidades da plataforma.&lt;/p>
 &lt;h3 id="projectshttpsgithubcomplatiagroprojects">&lt;a href="https://github.com/platiagro/projects">Projects&lt;/a>&lt;/h3>
 &lt;p>API de gestão de projetos, experimentos e tarefas.&lt;/p>
-&lt;h3 id="pipelineshttpsgithubcomplatiagropipelines">&lt;a href="https://github.com/platiagro/pipelines">Pipelines&lt;/a>&lt;/h3>
-&lt;p>API de execução e implantação de fluxos de tarefas.&lt;/p>
 &lt;h3 id="datasetshttpsgithubcomplatiagrodatasets">&lt;a href="https://github.com/platiagro/datasets">Datasets&lt;/a>&lt;/h3>
 &lt;p>API de gerenciamento de conjuntos de dados.&lt;/p>
 &lt;h3 id="kubeflow-pipelineshttpsgithubcomkubeflowpipelines">&lt;a href="https://github.com/kubeflow/pipelines">Kubeflow Pipelines&lt;/a>&lt;/h3>
 &lt;p>Platforma para construção e execução de fluxos de &lt;em>machine learning&lt;/em> com base em containers Docker.&lt;/p>
+&lt;h3 id="argo-workflowshttpsargo-cdreadthedocsioenstable">&lt;a href="https://argo-cd.readthedocs.io/en/stable/">Argo Workflows&lt;/a>&lt;/h3>
+&lt;p>Motor de orquestração de cargas de trabalho no Kubernetes.&lt;/p>
 &lt;h3 id="seldon-corehttpsgithubcomseldonioseldon-core">&lt;a href="https://github.com/SeldonIO/seldon-core">Seldon Core&lt;/a>&lt;/h3>
 &lt;p>Plataforma para implantação de modelos de &lt;em>machine learning&lt;/em> em serviços REST prontos para production.&lt;/p>
+&lt;h3 id="knativehttpsknativedev">&lt;a href="https://knative.dev/">KNative&lt;/a>&lt;/h3>
+&lt;p>Plataforma para implantação de cargas &lt;em>serverless&lt;/em>.&lt;/p>
 &lt;h3 id="jupyterhttpsjupyterorg">&lt;a href="https://jupyter.org/">Jupyter&lt;/a>&lt;/h3>
 &lt;p>Ambiente interativo para desenvolvimento de código e análise de dados.&lt;/p>
 &lt;h3 id="mysqlhttpswwwmysqlcom">&lt;a href="https://www.mysql.com/">MySQL&lt;/a>&lt;/h3>
