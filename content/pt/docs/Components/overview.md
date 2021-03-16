@@ -17,17 +17,20 @@ Interface gráfica da PlatIAgro que dá acesso às funcionalidades da plataforma
 ### [Projects](https://github.com/platiagro/projects)
 API de gestão de projetos, experimentos e tarefas.
 
-### [Pipelines](https://github.com/platiagro/pipelines)
-API de execução e implantação de fluxos de tarefas.
-
 ### [Datasets](https://github.com/platiagro/datasets)
 API de gerenciamento de conjuntos de dados.
 
 ### [Kubeflow Pipelines](https://github.com/kubeflow/pipelines)
 Platforma para construção e execução de fluxos de *machine learning* com base em containers Docker.
 
+### [Argo Workflows](https://argo-cd.readthedocs.io/en/stable/)
+Motor de orquestração de cargas de trabalho no Kubernetes.
+
 ### [Seldon Core](https://github.com/SeldonIO/seldon-core)
 Plataforma para implantação de modelos de *machine learning* em serviços REST prontos para production.
+
+### [KNative](https://knative.dev/)
+Plataforma para implantação de cargas *serverless*.
 
 ### [Jupyter](https://jupyter.org/)
 Ambiente interativo para desenvolvimento de código e análise de dados.
