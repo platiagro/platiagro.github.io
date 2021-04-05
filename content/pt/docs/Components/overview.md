@@ -7,6 +7,10 @@ description: >
   plataforma de IA.
 ---
 
+![Visão macro de arquitetura da PlatIAgro.](/images/architecture-1.png)
+
+![Visão macro de arquitetura da PlatIAgro.](/images/architecture-2.png)
+
 O diagrama a seguir mostra os diversos componentes que compõem a PlatIAgro:
 
 ![Diagrama de componentes da PlatIAgro.](/images/platiagro-components.png)
