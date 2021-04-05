@@ -13,6 +13,8 @@
 &lt;p>Com o modelo implantado, conforme novos dados de entrada chegam à PlatIAgro por uma aplicação, ela os direciona para o fluxo de tarefas associado ao projeto e realiza suas ações. Ao final, os valores estimados são devolvidos à aplicação.&lt;/p>
 &lt;h3 id="gerenciamento-e-monitoramento">Gerenciamento e monitoramento&lt;/h3>
 &lt;p>Para avaliar em tempo real os modelos de IA já implantados (em utilização), a PlatIAgro fornece uma tarefa nativa de monitoramento.&lt;/p></description></item><item><title>Docs: Visão Geral</title><link>https://platiagro.github.io/docs/components/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/components/overview/</guid><description>
+&lt;p>&lt;img src="https://platiagro.github.io/images/architecture-1.png" alt="Visão macro de arquitetura da PlatIAgro.">&lt;/p>
+&lt;p>&lt;img src="https://platiagro.github.io/images/architecture-2.png" alt="Visão macro de arquitetura da PlatIAgro.">&lt;/p>
 &lt;p>O diagrama a seguir mostra os diversos componentes que compõem a PlatIAgro:&lt;/p>
 &lt;p>&lt;img src="https://platiagro.github.io/images/platiagro-components.png" alt="Diagrama de componentes da PlatIAgro.">&lt;/p>
 &lt;h3 id="web-uihttpsgithubcomplatiagroweb-ui">&lt;a href="https://github.com/platiagro/web-ui">Web UI&lt;/a>&lt;/h3>
