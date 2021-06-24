@@ -40,16 +40,20 @@
 &lt;h3 id="istiohttpsistioiolatest">&lt;a href="https://istio.io/latest/">Istio&lt;/a>&lt;/h3>
 &lt;p>Gerenciador de microsserviços com base em Kubernetes.&lt;/p></description></item><item><title>Docs: Instalação da PlatIAgro</title><link>https://platiagro.github.io/docs/getting-started/install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/install/</guid><description>
 &lt;h3 id="instalação-em-um-cluster-kubernetes">Instalação em um cluster Kubernetes&lt;/h3>
-&lt;p>Para continuar é necessário ter um Cluster Kubernetes, &lt;a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl&lt;/a> e &lt;a href="https://github.com/kubeflow/kfctl/releases">kfctl&lt;/a> configurados para acessar o cluster.&lt;/p>
-&lt;p>&lt;strong>ATENÇÃO: Atualmente, as versões 1.14 and 1.15 do Kubernetes são as únicas com suporte.&lt;/strong>&lt;/p>
+&lt;p>Certifique-se de ter os seguintes pré-requisitos antes de instalar a PlatIAgro:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Kubernetes&lt;/code> (testado com a versão &lt;code>1.18&lt;/code>) com um &lt;a href="https://kubernetes.io/docs/concepts/storage/storage-classes/">StorageClass&lt;/a>&lt;/li>
+&lt;li>&lt;code>kustomize&lt;/code> (testado com a versão &lt;code>3.2.0&lt;/code>) (&lt;a href="https://github.com/kubernetes-sigs/kustomize/releases/tag/v3.2.0">download link&lt;/a>)
+&lt;ul>
+&lt;li>PlatIAgro é construída usando o &lt;a href="https://www.kubeflow.org">Kubeflow&lt;/a>, e o Kubeflow 1.3.0 não é compatível com a versão mais recente do kustomize 4.x.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>kubectl&lt;/code>&lt;/li>
+&lt;/ul>
 &lt;p>Execute os seguintes comandos:&lt;/p>
-&lt;pre>&lt;code>export KF_NAME=platiagro
-export BASE_DIR=$(pwd)
-export KF_DIR=${BASE_DIR}/${KF_NAME}
-export CONFIG_URI=&amp;quot;https://raw.githubusercontent.com/platiagro/manifests/v0.1.0-kubeflow-v1.0-branch/kfdef/kfctl_platiagro_tls.v0.1.0.yaml&amp;quot;
-mkdir -p ${KF_DIR}
-cd ${KF_DIR}
-kfctl apply -V -f ${CONFIG_URI}
+&lt;pre>&lt;code>git clone --single-branch --branch v0.2.0-kubeflow-v1.3-branch https://github.com/platiagro/manifests.git
+cd manifests
+while ! kustomize build platiagro | kubectl apply -f -; do echo &amp;quot;Retrying to apply resources&amp;quot;; sleep 10; done
 &lt;/code>&lt;/pre>&lt;p>Então visite https://[LOAD-BALANCER-HOST]/&lt;/p>
 &lt;h3 id="instalação-no-google-kubernetes-engine-gke">Instalação no Google Kubernetes Engine (GKE)&lt;/h3>
 &lt;p>Visite &lt;a href="https://platiagro-gcp.herokuapp.com/">https://platiagro-gcp.herokuapp.com/&lt;/a> e siga as instruções.&lt;/p></description></item><item><title>Docs: Kubeflow</title><link>https://platiagro.github.io/docs/components/kubeflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/components/kubeflow/</guid><description>
