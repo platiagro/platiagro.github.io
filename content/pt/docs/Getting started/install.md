@@ -8,20 +8,19 @@ description: >
 
 ### Instalação em um cluster Kubernetes
 
-Para continuar é necessário ter um Cluster Kubernetes, [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) e [kfctl](https://github.com/kubeflow/kfctl/releases) configurados para acessar o cluster.
+Certifique-se de ter os seguintes pré-requisitos antes de instalar a PlatIAgro:
 
-**ATENÇÃO: Atualmente, as versões 1.14 and 1.15 do Kubernetes são as únicas com suporte.**
+- `Kubernetes` (testado com a versão `1.18`) com um [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/)
+- `kustomize` (testado com a versão `3.2.0`) ([download link](https://github.com/kubernetes-sigs/kustomize/releases/tag/v3.2.0))
+    - PlatIAgro é construída usando o [Kubeflow](https://www.kubeflow.org), e o Kubeflow 1.3.0 não é compatível com a versão mais recente do kustomize 4.x.
+- `kubectl`
 
 Execute os seguintes comandos:
 
 ```
-export KF_NAME=platiagro
-export BASE_DIR=$(pwd)
-export KF_DIR=${BASE_DIR}/${KF_NAME}
-export CONFIG_URI="https://raw.githubusercontent.com/platiagro/manifests/v0.1.0-kubeflow-v1.0-branch/kfdef/kfctl_platiagro_tls.v0.1.0.yaml"
-mkdir -p ${KF_DIR}
-cd ${KF_DIR}
-kfctl apply -V -f ${CONFIG_URI}
+git clone --single-branch --branch v0.2.0-kubeflow-v1.3-branch https://github.com/platiagro/manifests.git
+cd manifests
+while ! kustomize build platiagro | kubectl apply -f -; do echo "Retrying to apply resources"; sleep 10; done
 ```
 
 Então visite https://[LOAD-BALANCER-HOST]/
