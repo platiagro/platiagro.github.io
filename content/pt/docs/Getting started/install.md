@@ -15,12 +15,22 @@ Certifique-se de ter os seguintes pré-requisitos antes de instalar a PlatIAgro:
     - PlatIAgro é construída usando o [Kubeflow](https://www.kubeflow.org), e o Kubeflow 1.3.0 não é compatível com a versão mais recente do kustomize 4.x.
 - `kubectl`
 
-Execute os seguintes comandos:
+Há 4 modos de instalação:
 
 ```
+platiagro           sem autenticação e pronta para CPU.
+platiagro-gpu       sem autenticação e pronta para GPU.
+platiagro-auth      com autenticação e pronta para CPU.
+platiagro-gpu-auth  com autenticação e pronta para GPU.
+```
+
+Ajuste a variável `INSTALL_DIR=platiagro`, e então rode os seguintes comandos:
+
+```
+export INSTALL_DIR=platiagro
 git clone --single-branch --branch v0.2.0-kubeflow-v1.3-branch https://github.com/platiagro/manifests.git
 cd manifests
-while ! kustomize build platiagro | kubectl apply -f -; do echo "Retrying to apply resources"; sleep 10; done
+while ! kustomize build $INSTALL_DIR | kubectl apply -f -; do echo "Retrying to apply resources"; sleep 10; done
 ```
 
 Então visite https://[LOAD-BALANCER-HOST]/
