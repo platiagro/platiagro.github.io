@@ -7,7 +7,7 @@ description: >
 ---
 
 ### 1. Como fazer o build do software localmente?
-Frontend: O frontend da plataforma utiliza o Node.JS. As instruções de build
+Frontend: O frontend da plataforma utiliza o ReactJS. As instruções de build
 estão no [README.md do repositório web-ui](https://github.com/platiagro/web-ui#readme),
 e envolvem a utilização do `yarn`, ou `docker`.
 
