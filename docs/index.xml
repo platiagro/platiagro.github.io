@@ -50,10 +50,16 @@
 &lt;/li>
 &lt;li>&lt;code>kubectl&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;p>Execute os seguintes comandos:&lt;/p>
-&lt;pre>&lt;code>git clone --single-branch --branch v0.2.0-kubeflow-v1.3-branch https://github.com/platiagro/manifests.git
+&lt;p>Há 4 modos de instalação:&lt;/p>
+&lt;pre>&lt;code>platiagro sem autenticação e pronta para CPU.
+platiagro-gpu sem autenticação e pronta para GPU.
+platiagro-auth com autenticação e pronta para CPU.
+platiagro-gpu-auth com autenticação e pronta para GPU.
+&lt;/code>&lt;/pre>&lt;p>Ajuste a variável &lt;code>INSTALL_DIR=platiagro&lt;/code>, e então rode os seguintes comandos:&lt;/p>
+&lt;pre>&lt;code>export INSTALL_DIR=platiagro
+git clone --single-branch --branch v0.2.0-kubeflow-v1.3-branch https://github.com/platiagro/manifests.git
 cd manifests
-while ! kustomize build platiagro | kubectl apply -f -; do echo &amp;quot;Retrying to apply resources&amp;quot;; sleep 10; done
+while ! kustomize build $INSTALL_DIR | kubectl apply -f -; do echo &amp;quot;Retrying to apply resources&amp;quot;; sleep 10; done
 &lt;/code>&lt;/pre>&lt;p>Então visite https://[LOAD-BALANCER-HOST]/&lt;/p>
 &lt;h3 id="instalação-no-google-kubernetes-engine-gke">Instalação no Google Kubernetes Engine (GKE)&lt;/h3>
 &lt;p>Visite &lt;a href="https://platiagro-gcp.herokuapp.com/">https://platiagro-gcp.herokuapp.com/&lt;/a> e siga as instruções.&lt;/p></description></item><item><title>Docs: Kubeflow</title><link>https://platiagro.github.io/docs/components/kubeflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/components/kubeflow/</guid><description>
