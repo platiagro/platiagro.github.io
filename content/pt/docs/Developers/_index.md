@@ -96,6 +96,7 @@ Algumas outras fontes de documentação:
 - Desenvolvedores Frontend: [Cedric Matheus](https://github.com/cedric-matheus), [Giancarlo Schaffer Jr.](https://github.com/schafferjrdev), [Luan Costa](https://github.com/LuanEdCosta)
 - Desenvolvedores Backend: [Miguel Ferraz](https://github.com/miguelfferraz), [Danilo Carvalho](https://github.com/dnlcesilva), [André Luis Nogueira](https://github.com/andreluiz27), [Domingos Neto](https://github.com/dfvneto)
 - Engenheiros de Machine Learning: [Matheus Sasso](https://github.com/math-sasso), [Gabriela Vechini](https://github.com/gvechini), [Luiz Borro](https://github.com/lborro), [Andreza Santos](https://github.com/andisantos), [Lucas Sequeira](https://github.com/lucasns97)
+- Analista de Teste: [Edgar Melo](https://github.com/emelo-repo)
 
 ### 11. Com que frequência o time se reune?
 Há reuniões diárias com o time de software e 2 vezes na semana com o time completo (Machine Learning + Software).<br>
