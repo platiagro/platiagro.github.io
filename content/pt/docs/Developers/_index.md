@@ -94,7 +94,7 @@ Algumas outras fontes de documentação:
 - Arquiteto de Software: [Fábio Beranizo](https://github.com/fberanizo)
 - UX: [Fabiani de Souza](https://br.linkedin.com/in/fabianisouza)
 - Desenvolvedores Frontend: [Cedric Matheus](https://github.com/cedric-matheus), [Giancarlo Schaffer Jr.](https://github.com/schafferjrdev), [Luan Costa](https://github.com/LuanEdCosta)
-- Desenvolvedores Backend: [Miguel Ferraz](https://github.com/miguelfferraz), [Danilo Carvalho](https://github.com/dnlcesilva), [André Luis Nogueira](https://github.com/andreluiz27)
+- Desenvolvedores Backend: [Miguel Ferraz](https://github.com/miguelfferraz), [Danilo Carvalho](https://github.com/dnlcesilva), [André Luis Nogueira](https://github.com/andreluiz27), [Domingos Neto](https://github.com/dfvneto)
 - Engenheiros de Machine Learning: [Matheus Sasso](https://github.com/math-sasso), [Gabriela Vechini](https://github.com/gvechini), [Luiz Borro](https://github.com/lborro), [Andreza Santos](https://github.com/andisantos), [Lucas Sequeira](https://github.com/lucasns97)
 
 ### 11. Com que frequência o time se reune?
