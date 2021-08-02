@@ -10,7 +10,7 @@
 &lt;h3 id="datasetshttpsgithubcomplatiagrodatasets">&lt;a href="https://github.com/platiagro/datasets">Datasets&lt;/a>&lt;/h3>
 &lt;p>API de gerenciamento de conjuntos de dados.&lt;/p>
 &lt;h3 id="kubeflow-pipelineshttpsgithubcomkubeflowpipelines">&lt;a href="https://github.com/kubeflow/pipelines">Kubeflow Pipelines&lt;/a>&lt;/h3>
-&lt;p>Platforma para construção e execução de fluxos de &lt;em>machine learning&lt;/em> com base em containers Docker.&lt;/p>
+&lt;p>Plataforma para construção e execução de fluxos de &lt;em>machine learning&lt;/em> com base em containers Docker.&lt;/p>
 &lt;h3 id="argo-workflowshttpsargo-cdreadthedocsioenstable">&lt;a href="https://argo-cd.readthedocs.io/en/stable/">Argo Workflows&lt;/a>&lt;/h3>
 &lt;p>Motor de orquestração de cargas de trabalho no Kubernetes.&lt;/p>
 &lt;h3 id="kubeflow-notebook-controllerhttpsgithubcomkubeflowkubeflowtreemastercomponentsnotebook-controller">&lt;a href="https://github.com/kubeflow/kubeflow/tree/master/components/notebook-controller">Kubeflow Notebook Controller&lt;/a>&lt;/h3>
@@ -20,7 +20,7 @@
 &lt;h3 id="kubeflow-profile-controllerhttpsgithubcomkubeflowkubeflowtreemastercomponentsprofile-controller">&lt;a href="https://github.com/kubeflow/kubeflow/tree/master/components/profile-controller">Kubeflow Profile Controller&lt;/a>&lt;/h3>
 &lt;p>Serviço controlador de perfis com base em Kubernetes RBAC e Istio AuthorizationPolicy.&lt;/p>
 &lt;h3 id="seldon-corehttpsgithubcomseldonioseldon-core">&lt;a href="https://github.com/SeldonIO/seldon-core">Seldon Core&lt;/a>&lt;/h3>
-&lt;p>Plataforma para implantação de modelos de &lt;em>machine learning&lt;/em> em serviços REST prontos para production.&lt;/p>
+&lt;p>Plataforma para conteinerização de modelos de &lt;em>machine learning&lt;/em> em serviços REST prontos para produção.&lt;/p>
 &lt;h3 id="knativehttpsknativedev">&lt;a href="https://knative.dev/">KNative&lt;/a>&lt;/h3>
 &lt;p>Plataforma para implantação de cargas &lt;em>serverless&lt;/em>.&lt;/p>
 &lt;h3 id="jupyterhttpsjupyterorg">&lt;a href="https://jupyter.org/">Jupyter&lt;/a>&lt;/h3>
@@ -30,7 +30,14 @@
 &lt;h3 id="miniohttpsminio">&lt;a href="https://min.io/">MinIO&lt;/a>&lt;/h3>
 &lt;p>Serviço de armazenamento de arquivos compatível com Amazon S3.&lt;/p>
 &lt;h3 id="istiohttpsistioiolatest">&lt;a href="https://istio.io/latest/">Istio&lt;/a>&lt;/h3>
-&lt;p>Gerenciador de microsserviços com base em Kubernetes.&lt;/p>
+&lt;p>Gerenciador de microsserviços com base em Kubernetes.
+Permite funcionalidades como:&lt;/p>
+&lt;ul>
+&lt;li>comunicação segura entre serviços (com criptografia TLS), com suporte a autenticação&lt;/li>
+&lt;li>balanceamento de carga automático, para tráfego HTTP, WebSocket e TCP&lt;/li>
+&lt;li>controle de tráfego e rotas, limites de acesso, &lt;em>retry&lt;/em>, &lt;em>failovers&lt;/em> e &lt;em>fault injection&lt;/em>&lt;/li>
+&lt;li>captura de métricas e logs dentro do cluster, no ingresso e saída&lt;/li>
+&lt;/ul>
 &lt;h3 id="dex-oidchttpsdexidpio">&lt;a href="https://dexidp.io/">Dex OIDC&lt;/a>&lt;/h3>
 &lt;p>Serviço de autenticação com base no protocolo OpenID Connect.&lt;/p></description></item><item><title>Docs: Kubeflow</title><link>https://platiagro.github.io/docs/components/kubeflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/components/kubeflow/</guid><description>
 &lt;p>Kubeflow é uma platforma para auxiliar o desenvolvimento e implantação de aplicações de machine learning (ML).&lt;/p>
