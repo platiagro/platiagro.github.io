@@ -25,7 +25,7 @@ API de gestão de projetos, experimentos e tarefas.
 API de gerenciamento de conjuntos de dados.
 
 ### [Kubeflow Pipelines](https://github.com/kubeflow/pipelines)
-Platforma para construção e execução de fluxos de *machine learning* com base em containers Docker.
+Plataforma para construção e execução de fluxos de *machine learning* com base em containers Docker.
 
 ### [Argo Workflows](https://argo-cd.readthedocs.io/en/stable/)
 Motor de orquestração de cargas de trabalho no Kubernetes.
@@ -40,7 +40,7 @@ Serviço de controle de acesso usuário-namespace. Permite uma arquitetura "mult
 Serviço controlador de perfis com base em Kubernetes RBAC e Istio AuthorizationPolicy.
 
 ### [Seldon Core](https://github.com/SeldonIO/seldon-core)
-Plataforma para implantação de modelos de *machine learning* em serviços REST prontos para production.
+Plataforma para conteinerização de modelos de *machine learning* em serviços REST prontos para produção.
 
 ### [KNative](https://knative.dev/)
 Plataforma para implantação de cargas *serverless*.
@@ -56,6 +56,11 @@ Serviço de armazenamento de arquivos compatível com Amazon S3.
 
 ### [Istio](https://istio.io/latest/)
 Gerenciador de microsserviços com base em Kubernetes.
+Permite funcionalidades como:
+- comunicação segura entre serviços (com criptografia TLS), com suporte a autenticação
+- balanceamento de carga automático, para tráfego HTTP, WebSocket e TCP
+- controle de tráfego e rotas, limites de acesso, *retry*, *failovers* e *fault injection*
+- captura de métricas e logs dentro do cluster, no ingresso e saída
 
 ### [Dex OIDC](https://dexidp.io/)
 Serviço de autenticação com base no protocolo OpenID Connect.
