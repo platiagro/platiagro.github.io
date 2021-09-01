@@ -36,7 +36,27 @@ cd manifests
 while ! kustomize build $INSTALL_DIR | kubectl apply -f -; do echo &amp;quot;Retrying to apply resources&amp;quot;; sleep 10; done
 &lt;/code>&lt;/pre>&lt;p>Então visite https://[LOAD-BALANCER-HOST]/&lt;/p>
 &lt;h3 id="instalação-no-google-kubernetes-engine-gke">Instalação no Google Kubernetes Engine (GKE)&lt;/h3>
-&lt;p>Visite &lt;a href="https://platiagro-gcp.herokuapp.com/">https://platiagro-gcp.herokuapp.com/&lt;/a> e siga as instruções.&lt;/p></description></item><item><title>Docs: Interface Web</title><link>https://platiagro.github.io/docs/getting-started/first-access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/first-access/</guid><description>
+&lt;p>Visite &lt;a href="https://platiagro-gcp.herokuapp.com/">https://platiagro-gcp.herokuapp.com/&lt;/a> e siga as instruções.&lt;/p></description></item><item><title>Docs: Autenticação Platiagro</title><link>https://platiagro.github.io/docs/getting-started/authentication/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/authentication/</guid><description>
+&lt;p>Existem 2 métodos para obter o token authservice_session para enviar solicitações de predição autenticadas ao PlatIAgro.&lt;/p>
+&lt;h3 id="usando-python">Usando Python&lt;/h3>
+&lt;p>import requests
+import os&lt;/p>
+&lt;p>requests.packages.urllib3.disable_warnings(
+requests.packages.urllib3.exceptions.InsecureRequestWarning)&lt;/p>
+&lt;p>USERNAME = &amp;ldquo;platiagro&amp;rdquo;
+PASSWORD = &amp;ldquo;platiagro1234&amp;rdquo;
+HOST = os.popen(&amp;ldquo;kubectl -n istio-system get service istio-ingressgateway -o jsonpath=&amp;rsquo;{.spec.clusterIP}'&amp;quot;).read()
+NAMESPACE=&amp;quot;istio-system&amp;rdquo;&lt;/p>
+&lt;p>session = requests.Session()
+response = session.get(f&amp;quot;https://{HOST}&amp;quot;, verify=False)&lt;/p>
+&lt;p>headers = {
+&amp;ldquo;Content-Type&amp;rdquo;: &amp;ldquo;application/x-www-form-urlencoded&amp;rdquo;,
+}&lt;/p>
+&lt;p>data = {&amp;ldquo;login&amp;rdquo;: USERNAME, &amp;ldquo;password&amp;rdquo;: PASSWORD}
+session.post(response.url, headers=headers, data=data)
+print(session.cookies.get_dict())
+session_cookie = session.cookies.get_dict()[&amp;ldquo;authservice_session&amp;rdquo;]
+print(session_cookie)&lt;/p></description></item><item><title>Docs: Interface Web</title><link>https://platiagro.github.io/docs/getting-started/first-access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/first-access/</guid><description>
 &lt;p>A seguir estão algumas capturas de tela de interfaces da PlatIAgro.&lt;/p>
 &lt;h3 id="lista-de-projetos">Lista de projetos&lt;/h3>
 &lt;p>&lt;img src="https://platiagro.github.io/images/list-projects.png" alt="Lista de projetos.">&lt;/p>
