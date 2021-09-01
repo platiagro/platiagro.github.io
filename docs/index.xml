@@ -109,7 +109,7 @@ print(session_cookie)
 &lt;ul>
 &lt;li>Retorno esperado:&lt;/li>
 &lt;/ul>
-&lt;p>&lt;code>{'authservice_session': 'MTYzMDUyNjMzM3xOd3dBTkZaVVVsazNWRFEwUlRSWFRGUkZOak5FU1RWV1MxVTBVbGhMVDBwTFRsZzNSa1ZEV1UxV1JWRTBSVXRGVUZGSU0weFpNMEU9fNUnZGVaU65-l1deO2fW6CZlMEZVcpcmXMqInjV6EFj3'}&lt;/code>&lt;/p></description></item><item><title>Docs: Interface Web</title><link>https://platiagro.github.io/docs/getting-started/first-access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/first-access/</guid><description>
+&lt;pre>&lt;code class="language-{'authservice_session':'MTYzMDUyNjMzM3xOd3dBTkZaVVVsazNWRFEwUlRSWFRGUkZOak5FU1RWV1MxVTBVbGhMVDBwTFRsZzNSa1ZEV1UxV1JWRTBSVXRGVUZGSU0weFpNMEU9fNUnZGVaU65-l1deO2fW6CZlMEZVcpcmXMqInjV6EFj3'}" data-lang="{'authservice_session':'MTYzMDUyNjMzM3xOd3dBTkZaVVVsazNWRFEwUlRSWFRGUkZOak5FU1RWV1MxVTBVbGhMVDBwTFRsZzNSa1ZEV1UxV1JWRTBSVXRGVUZGSU0weFpNMEU9fNUnZGVaU65-l1deO2fW6CZlMEZVcpcmXMqInjV6EFj3'}">&lt;/code>&lt;/pre></description></item><item><title>Docs: Interface Web</title><link>https://platiagro.github.io/docs/getting-started/first-access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/first-access/</guid><description>
 &lt;p>A seguir estão algumas capturas de tela de interfaces da PlatIAgro.&lt;/p>
 &lt;h3 id="lista-de-projetos">Lista de projetos&lt;/h3>
 &lt;p>&lt;img src="https://platiagro.github.io/images/list-projects.png" alt="Lista de projetos.">&lt;/p>
