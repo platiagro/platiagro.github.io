@@ -10,6 +10,8 @@ O método para obter o token authservice_session para enviar solicitações de p
 
 ### Usando Python
 
+Criar um arquivo, por exemplo, `authpla.py`, e colocar o conteúdo abaixo:
+
 ```
 import requests
 import os
@@ -35,3 +37,9 @@ print(session.cookies.get_dict())
 session_cookie = session.cookies.get_dict()["authservice_session"]
 print(session_cookie)
 ```
+
+Executar o script `python3 authpla.py`:
+- Retorno esperado:
+
+`{'authservice_session': 'MTYzMDUyNjMzM3xOd3dBTkZaVVVsazNWRFEwUlRSWFRGUkZOak5FU1RWV1MxVTBVbGhMVDBwTFRsZzNSa1ZEV1UxV1JWRTBSVXRGVUZGSU0weFpNMEU9fNUnZGVaU65-l1deO2fW6CZlMEZVcpcmXMqInjV6EFj3'}`
+
