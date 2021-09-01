@@ -1,15 +1,16 @@
 ---
-title: Autenticação Platiagro
-linkTitle: Autenticação Platiagro
+title: Autenticação PlatIAgro
+linkTitle: Autenticação PlatIAgro
 weight: 30
 description: >
     Autenticação para usar modelos implatados em ambiente com login.
 ---
 
-Existem 2 métodos para obter o token authservice_session para enviar solicitações de predição autenticadas ao PlatIAgro.
+O método para obter o token authservice_session para enviar solicitações de predição autenticadas ao PlatIAgro.
 
 ### Usando Python
 
+```
 import requests
 import os
 
@@ -33,4 +34,4 @@ session.post(response.url, headers=headers, data=data)
 print(session.cookies.get_dict())
 session_cookie = session.cookies.get_dict()["authservice_session"]
 print(session_cookie)
-
+```
