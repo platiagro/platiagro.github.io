@@ -42,5 +42,6 @@ print(session_cookie)
 Executar o script `python3 authpla.py`:
 - Retorno esperado:
 
-```{'authservice_session':'MTYzMDUyNjMzM3xOd3dBTkZaVVVsazNWRFEwUlRSWFRGUkZOak5FU1RWV1MxVTBVbGhMVDBwTFRsZzNSa1ZEV1UxV1JWRTBSVXRGVUZGSU0weFpNMEU9fNUnZGVaU65-l1deO2fW6CZlMEZVcpcmXMqInjV6EFj3'}
+```
+{'authservice_session':'MTYzMDUyNjMzM3xOd3dBTkZaVVVsazNWRFEwUlRSWFRGUkZOak5FU1RWV1MxVTBVbGhMVDBwTFRsZzNSa1ZEV1UxV1JWRTBSVXRGVUZGSU0weFpNMEU9fNUnZGVaU65-l1deO2fW6CZlMEZVcpcmXMqInjV6EFj3'}
 ```
