@@ -86,6 +86,7 @@ while ! kustomize build $INSTALL_DIR | kubectl apply -f -; do echo &amp;quot;Ret
 &lt;p>&lt;img src="https://platiagro.github.io/images/kubeflow-central-ui.png" alt="Interface do Kubeflow.">&lt;/p></description></item><item><title>Docs: Autenticação PlatIAgro</title><link>https://platiagro.github.io/docs/getting-started/authentication/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/authentication/</guid><description>
 &lt;p>O método para obter o token authservice_session para enviar solicitações de predição autenticadas ao PlatIAgro.&lt;/p>
 &lt;h3 id="usando-python">Usando Python&lt;/h3>
+&lt;p>Criar um arquivo, por exemplo, &lt;code>authpla.py&lt;/code>, e colocar o conteúdo abaixo:&lt;/p>
 &lt;pre>&lt;code>import requests
 import os
 requests.packages.urllib3.disable_warnings(
@@ -104,7 +105,11 @@ session.post(response.url, headers=headers, data=data)
 print(session.cookies.get_dict())
 session_cookie = session.cookies.get_dict()[&amp;quot;authservice_session&amp;quot;]
 print(session_cookie)
-&lt;/code>&lt;/pre></description></item><item><title>Docs: Interface Web</title><link>https://platiagro.github.io/docs/getting-started/first-access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/first-access/</guid><description>
+&lt;/code>&lt;/pre>&lt;p>Executar o script &lt;code>python3 authpla.py&lt;/code>:&lt;/p>
+&lt;ul>
+&lt;li>Retorno esperado:&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>{'authservice_session': 'MTYzMDUyNjMzM3xOd3dBTkZaVVVsazNWRFEwUlRSWFRGUkZOak5FU1RWV1MxVTBVbGhMVDBwTFRsZzNSa1ZEV1UxV1JWRTBSVXRGVUZGSU0weFpNMEU9fNUnZGVaU65-l1deO2fW6CZlMEZVcpcmXMqInjV6EFj3'}&lt;/code>&lt;/p></description></item><item><title>Docs: Interface Web</title><link>https://platiagro.github.io/docs/getting-started/first-access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/first-access/</guid><description>
 &lt;p>A seguir estão algumas capturas de tela de interfaces da PlatIAgro.&lt;/p>
 &lt;h3 id="lista-de-projetos">Lista de projetos&lt;/h3>
 &lt;p>&lt;img src="https://platiagro.github.io/images/list-projects.png" alt="Lista de projetos.">&lt;/p>
