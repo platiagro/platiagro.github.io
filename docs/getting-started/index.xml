@@ -12,7 +12,22 @@
 &lt;h3 id="predições">Predições&lt;/h3>
 &lt;p>Com o modelo implantado, conforme novos dados de entrada chegam à PlatIAgro por uma aplicação, ela os direciona para o fluxo de tarefas associado ao projeto e realiza suas ações. Ao final, os valores estimados são devolvidos à aplicação.&lt;/p>
 &lt;h3 id="gerenciamento-e-monitoramento">Gerenciamento e monitoramento&lt;/h3>
-&lt;p>Para avaliar em tempo real os modelos de IA já implantados (em utilização), a PlatIAgro fornece uma tarefa nativa de monitoramento.&lt;/p></description></item><item><title>Docs: Instalação da PlatIAgro</title><link>https://platiagro.github.io/docs/getting-started/install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/install/</guid><description>
+&lt;p>Para avaliar em tempo real os modelos de IA já implantados (em utilização), a PlatIAgro fornece uma tarefa nativa de monitoramento.&lt;/p></description></item><item><title>Docs: Criação de senha</title><link>https://platiagro.github.io/docs/getting-started/password-creation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/password-creation/</guid><description>
+&lt;h3 id="criação-de-login-e-senha-na-platiagro">Criação de login e senha na platiagro&lt;/h3>
+&lt;p>É altamente &lt;strong>NÃO recomendado&lt;/strong> a utilização da senha predefinida do usuário padrão do Kubeflow em ambientes que precisam de segurança. Dito isto, segue abaixo as recomendações de criação de login e senha:&lt;/p>
+&lt;ul>
+&lt;li>1° considere o usuário padrão com o email &lt;code>user@example.com&lt;/code>, basta escolher uma senha para esse usuário e em seguida transformar em uma hash utilizando a lib de python &lt;code>bcrypt&lt;/code>, segue um trecho de código capaz de realizar isto:&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code>python3 -c 'from passlib.hash import bcrypt; import getpass; print(bcrypt.using(rounds=12, ident=&amp;quot;2y&amp;quot;).hash(getpass.getpass()))'
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>2° A hash gerada no passo anterior precisará ser inserida em &lt;code>dex/base/config-map.yaml&lt;/code>. É possível usar um comando do kubectl para editar o configmap, segue o comando:&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code>kubectl -n auth edit configmap dex
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>3° Reinicie o serviço e use o configmap utilizando o seguinte comandop&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code>kubectl -n auth delete pod -l app=dex
+&lt;/code>&lt;/pre></description></item><item><title>Docs: Instalação da PlatIAgro</title><link>https://platiagro.github.io/docs/getting-started/install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/install/</guid><description>
 &lt;h3 id="instalação-em-um-cluster-kubernetes">Instalação em um cluster Kubernetes&lt;/h3>
 &lt;p>Certifique-se de ter os seguintes pré-requisitos antes de instalar a PlatIAgro:&lt;/p>
 &lt;ul>
@@ -36,18 +51,6 @@ cd manifests
 while ! kustomize build $INSTALL_DIR | kubectl apply -f -; do echo &amp;quot;Retrying to apply resources&amp;quot;; sleep 10; done
 &lt;/code>&lt;/pre>&lt;p>Então visite https://[LOAD-BALANCER-HOST]/&lt;/p>
 &lt;h3 id="instalação-no-google-kubernetes-engine-gke">Instalação no Google Kubernetes Engine (GKE)&lt;/h3>
-&lt;p>Visite &lt;a href="https://platiagro-gcp.herokuapp.com/">https://platiagro-gcp.herokuapp.com/&lt;/a> e siga as instruções.&lt;/p></description></item><item><title>Docs: Instalação da PlatIAgro</title><link>https://platiagro.github.io/docs/getting-started/password-creation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/password-creation/</guid><description>
-&lt;h3 id="criação-de-login-e-senha-na-platiagro">Criação de login e senha na platiagro&lt;/h3>
-&lt;p>É altamente &lt;strong>NÃO recomendado&lt;/strong> a utilização da senha predefinida do usuário padrão do Kubeflow em ambientes que precisam de segurança. Dito isto, segue abaixo as recomendações de criação de login e senha:&lt;/p>
-&lt;ul>
-&lt;li>1° considere o usuário padrão com o email &lt;code>user@example.com&lt;/code>, basta escolher uma senha para esse usuário e em seguida transformar em uma hash utilizando a lib de python &lt;code>bcrypt&lt;/code>, segue um trecho de código capaz de realizar isto:&lt;/li>
-&lt;/ul>
-&lt;pre>&lt;code>python3 -c 'from passlib.hash import bcrypt; import getpass; print(bcrypt.using(rounds=12, ident=&amp;quot;2y&amp;quot;).hash(getpass.getpass()))'
-&lt;/code>&lt;/pre>&lt;ul>
-&lt;li>2° A hash gerado no passo anterior precisará ser inserida em &lt;code>dex/base/config-map.yaml&lt;/code>. Você pode usar um comando do kubectl para editar o configmap, segue o comando:&lt;/li>
-&lt;/ul>
-&lt;pre>&lt;code>kubectl -n auth edit configmap dex
-&lt;/code>&lt;/pre>&lt;h3 id="instalação-no-google-kubernetes-engine-gke">Instalação no Google Kubernetes Engine (GKE)&lt;/h3>
 &lt;p>Visite &lt;a href="https://platiagro-gcp.herokuapp.com/">https://platiagro-gcp.herokuapp.com/&lt;/a> e siga as instruções.&lt;/p></description></item><item><title>Docs: Autenticação PlatIAgro</title><link>https://platiagro.github.io/docs/getting-started/authentication/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/authentication/</guid><description>
 &lt;p>O método para obter o token authservice_session para enviar solicitações de predição autenticadas ao PlatIAgro.&lt;/p>
 &lt;h3 id="usando-python">Usando Python&lt;/h3>
