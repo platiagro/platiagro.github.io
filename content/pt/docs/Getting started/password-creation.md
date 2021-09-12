@@ -1,9 +1,9 @@
 ---
-title: Instalação da PlatIAgro
-linkTitle: Instalação da PlatIAgro
+title: Criação de senha
+linkTitle: Criação de senha para usuário kubeflow
 weight: 20
 description: >
-  Veja as opções de instalação para cada ambiente.
+  Veja como criar uma senha para um usuário do Kubeflow.
 ---
 
 ### Criação de login e senha na platiagro
@@ -16,13 +16,15 @@ description: >
 python3 -c 'from passlib.hash import bcrypt; import getpass; print(bcrypt.using(rounds=12, ident="2y").hash(getpass.getpass()))'
 
 ```
-- 2° A hash gerado no passo anterior precisará ser inserida em `dex/base/config-map.yaml`. Você pode usar um comando do kubectl para editar o configmap, segue o comando: 
+- 2° A hash gerada no passo anterior precisará ser inserida em `dex/base/config-map.yaml`. É possível usar um comando do kubectl para editar o configmap, segue o comando: 
 
 ```
 kubectl -n auth edit configmap dex
 
 ```
+- 3° Reinicie o serviço e use o configmap utilizando o seguinte comandop
+  
+```
+kubectl -n auth delete pod -l app=dex
 
-### Instalação no Google Kubernetes Engine (GKE)
-
-Visite [https://platiagro-gcp.herokuapp.com/](https://platiagro-gcp.herokuapp.com/) e siga as instruções.
+``` 
