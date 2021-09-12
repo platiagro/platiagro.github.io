@@ -24,7 +24,7 @@
 &lt;/ul>
 &lt;pre>&lt;code>kubectl -n auth edit configmap dex
 &lt;/code>&lt;/pre>&lt;ul>
-&lt;li>3° Reinicie o serviço e use o configmap utilizando o seguinte comandop&lt;/li>
+&lt;li>3° Reinicie o serviço e use o configmap utilizando o seguinte comando&lt;/li>
 &lt;/ul>
 &lt;pre>&lt;code>kubectl -n auth delete pod -l app=dex
 &lt;/code>&lt;/pre></description></item><item><title>Docs: Instalação da PlatIAgro</title><link>https://platiagro.github.io/docs/getting-started/install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/install/</guid><description>
