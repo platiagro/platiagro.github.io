@@ -22,7 +22,7 @@ python3 -c 'from passlib.hash import bcrypt; import getpass; print(bcrypt.using(
 kubectl -n auth edit configmap dex
 
 ```
-- 3° Reinicie o serviço e use o configmap utilizando o seguinte comandop
+- 3° Reinicie o serviço e use o configmap utilizando o seguinte comando
   
 ```
 kubectl -n auth delete pod -l app=dex
