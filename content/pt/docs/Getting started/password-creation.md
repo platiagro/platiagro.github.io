@@ -8,7 +8,7 @@ description: >
 
 ### Criação de login e senha na platiagro
 
-É altamente __NÃO recomendado__ a utilização da senha predefinida do usuário padrão do Kubeflow em ambientes que precisam de segurança. Dito isto, segue abaixo as recomendações de criação de login e senha: 
+É altamente __NÃO recomendado__ a utilização da senha predefinida do usuário padrão do Kubeflow em ambientes que precisam de segurança. Dito isto, segue abaixo as recomendações de criação de senha: 
 
 1. considere o usuário padrão com o email `user@example.com`, basta escolher uma senha para esse usuário e em seguida transformá-la em uma hash utilizando a lib `bcrypt` do python, segue um trecho de código capaz de realizar isto: 
 
