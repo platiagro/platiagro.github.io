@@ -35,7 +35,7 @@ segue um exemplo de utilização do bcrypt para geração de hash: ![Hash genera
 kubectl -n auth edit configmap dex
 
 ```
-segue um exemplo de configmap: ![Config map file](/images/configmap.png)
+segue um exemplo de trecho do configmap: ![Config map file](/images/configmap.png)
 
 3. Uma vez com o configmap aberto, basta inserir o hash no seguinte trecho do arquivo:
 
