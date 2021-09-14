@@ -1,23 +1,33 @@
 ---
 title: Criação de senha
-linkTitle: Criação de senha para usuário kubeflow
+linkTitle: Criação de senha para usuário da platiagro
 weight: 20
 description: >
-  Veja como criar uma senha para um usuário do Kubeflow.
+  Veja como criar uma senha para um usuário da platiagro.
 ---
 
 ### Criação de login e senha na platiagro
 
-É altamente __NÃO recomendado__ a utilização da senha predefinida do usuário padrão do Kubeflow em ambientes que precisam de segurança. Dito isto, segue abaixo as recomendações de criação de senha: 
+É altamente __NÃO recomendado__ a utilização da senha predefinida do usuário padrão da platiagro em ambientes que precisam de segurança. Dito isto, segue abaixo as recomendações de criação de senha: 
 
-1. considere o usuário padrão com o email `user@example.com`, basta escolher uma senha para esse usuário e em seguida transformá-la em uma hash utilizando a lib `bcrypt` do python, segue um trecho de código capaz de realizar isto: 
+1. considere o usuário padrão com o login `platiagro`, basta escolher uma senha para esse usuário e em seguida transformá-la em uma hash utilizando a lib `bcrypt` do python, segue os passos para realizar isto: 
 
+Comando de instalação de bibliotecas necessárias(bcrypt e passlib):
+```
+pip3 install passlib[bcrypt]
+pip3 install bcrypt
+
+obs: Necessário ter o instalador pip instalado 
+
+```
+Script de geração da hash: 
 ```
 python3 -c 'from passlib.hash import bcrypt; import getpass; print(bcrypt.using(rounds=12, ident="2y").hash(getpass.getpass()))'
 
-obs:será solicitada a senha que deseja ser transformada em hash
+obs: Será solicitada a senha que deseja ser transformada em hash. O comando acima deve ser executado em terminais linux com interpretadores de python(>=3.6).
 
 ```
+segue um exemplo de utilização do bcrypt para geração de hash: ![Hash generation file](/images/hash_generation.png)
 
 2. A hash gerada no passo anterior precisará ser inserida em `dex/base/config-map.yaml`. É possível usar um comando do kubectl para editar o configmap, segue o comando: 
 
