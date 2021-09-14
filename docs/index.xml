@@ -53,7 +53,43 @@ Permite funcionalidades como:&lt;/p>
 &lt;li>captura de métricas e logs dentro do cluster, no ingresso e saída&lt;/li>
 &lt;/ul>
 &lt;h3 id="dex-oidchttpsdexidpio">&lt;a href="https://dexidp.io/">Dex OIDC&lt;/a>&lt;/h3>
-&lt;p>Serviço de autenticação com base no protocolo OpenID Connect.&lt;/p></description></item><item><title>Docs: Instalação da PlatIAgro</title><link>https://platiagro.github.io/docs/getting-started/install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/install/</guid><description>
+&lt;p>Serviço de autenticação com base no protocolo OpenID Connect.&lt;/p></description></item><item><title>Docs: Criação de senha</title><link>https://platiagro.github.io/docs/getting-started/password-creation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/password-creation/</guid><description>
+&lt;h3 id="criação-de-login-e-senha-na-platiagro">Criação de login e senha na platiagro&lt;/h3>
+&lt;p>É altamente &lt;strong>NÃO recomendado&lt;/strong> a utilização da senha predefinida do usuário padrão da platiagro em ambientes que precisam de segurança. Dito isto, segue abaixo as recomendações de criação de senha:&lt;/p>
+&lt;ol>
+&lt;li>considere o usuário padrão com o login &lt;code>platiagro&lt;/code>, basta escolher uma senha para esse usuário e em seguida transformá-la em uma hash utilizando a lib &lt;code>bcrypt&lt;/code> do python, segue os passos para realizar isto:&lt;/li>
+&lt;/ol>
+&lt;p>Comando de instalação de bibliotecas necessárias(bcrypt e passlib):&lt;/p>
+&lt;pre>&lt;code>pip3 install passlib[bcrypt]
+pip3 install bcrypt
+obs: Para instalações de bibliotecas python 3 é necessário ter o gerenciador de pacotes pip3 instalado
+&lt;/code>&lt;/pre>&lt;p>Script de geração da hash:&lt;/p>
+&lt;pre>&lt;code>python3 -c 'from passlib.hash import bcrypt; import getpass; print(bcrypt.using(rounds=12, ident=&amp;quot;2y&amp;quot;).hash(getpass.getpass()))'
+obs: Será solicitada a senha que deseja ser transformada em hash. O comando acima foi executado em terminais linux com interpretador de python(&amp;gt;=3.6).
+&lt;/code>&lt;/pre>&lt;p>segue um exemplo de utilização do bcrypt para geração de hash: &lt;img src="https://platiagro.github.io/images/hash_generation.png" alt="Hash generation file">&lt;/p>
+&lt;ol start="2">
+&lt;li>A hash gerada no passo anterior precisa ser inserida em &lt;code>dex/base/config-map.yaml&lt;/code>. É possível usar um comando do kubectl para editar o configmap, segue o comando:&lt;/li>
+&lt;/ol>
+&lt;pre>&lt;code>kubectl -n auth edit configmap dex
+&lt;/code>&lt;/pre>&lt;p>segue um exemplo de trecho do configmap: &lt;img src="https://platiagro.github.io/images/configmap.png" alt="Config map file">&lt;/p>
+&lt;ol start="3">
+&lt;li>Uma vez com o configmap aberto, basta inserir o hash no seguinte trecho do arquivo:&lt;/li>
+&lt;/ol>
+&lt;pre>&lt;code>...
+staticPasswords:
+- email: platiagro
+hash: &amp;lt;enter the generated hash here&amp;gt;
+&lt;/code>&lt;/pre>&lt;ol start="4">
+&lt;li>Reinicie o serviço e use o configmap utilizando o seguinte comando&lt;/li>
+&lt;/ol>
+&lt;pre>&lt;code>kubectl -n auth delete pod -l app=dex
+&lt;/code>&lt;/pre>&lt;h3 id="links-úteis">Links úteis&lt;/h3>
+&lt;ul>
+&lt;li>Documentação do dex: &lt;a href="https://dexidp.io/docs/using-dex/">https://dexidp.io/docs/using-dex/&lt;/a>&lt;/li>
+&lt;li>Instruções sobre instalações de pacotes python: &lt;a href="https://packaging.python.org/tutorials/installing-packages/">https://packaging.python.org/tutorials/installing-packages/&lt;/a>&lt;/li>
+&lt;li>Repositório do bcrypt: &lt;a href="https://github.com/pyca/bcrypt/">https://github.com/pyca/bcrypt/&lt;/a>&lt;/li>
+&lt;li>Tutorial sobre encriptação de senhas com bcrypt: &lt;a href="https://medium.com/py-bcrypt/encriptando-senhas-em-python-com-bcrypt-25e46b5c8166">https://medium.com/py-bcrypt/encriptando-senhas-em-python-com-bcrypt-25e46b5c8166&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Instalação da PlatIAgro</title><link>https://platiagro.github.io/docs/getting-started/install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/install/</guid><description>
 &lt;h3 id="instalação-em-um-cluster-kubernetes">Instalação em um cluster Kubernetes&lt;/h3>
 &lt;p>Certifique-se de ter os seguintes pré-requisitos antes de instalar a PlatIAgro:&lt;/p>
 &lt;ul>
