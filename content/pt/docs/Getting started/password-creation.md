@@ -17,7 +17,7 @@ Comando de instalação de bibliotecas necessárias(bcrypt e passlib):
 pip3 install passlib[bcrypt]
 pip3 install bcrypt
 
-obs: Necessário ter o instalador pip instalado 
+obs: Para instalações de bibliotecas python 3 é necessário ter o gerenciador de pacotes pip3 instalado 
 
 ```
 Script de geração da hash: 
