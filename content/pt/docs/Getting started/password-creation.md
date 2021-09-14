@@ -56,6 +56,7 @@ kubectl -n auth delete pod -l app=dex
 ``` 
 ### Links úteis
 - Documentação do dex: https://dexidp.io/docs/using-dex/
+- Instruções sobre instalações de pacotes python: https://packaging.python.org/tutorials/installing-packages/
 - Repositório do bcrypt: https://github.com/pyca/bcrypt/ 
 - Tutorial sobre encriptação de senhas com bcrypt: https://medium.com/py-bcrypt/encriptando-senhas-em-python-com-bcrypt-25e46b5c8166
 
