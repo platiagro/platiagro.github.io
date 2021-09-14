@@ -42,7 +42,7 @@ segue um exemplo de trecho do configmap: ![Config map file](/images/configmap.pn
 ```
 ...
   staticPasswords:
-  - email: user@example.com
+  - email: platiagro
     hash: <enter the generated hash here>
 
 ```  
