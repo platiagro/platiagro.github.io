@@ -24,7 +24,7 @@ Script de geração da hash:
 ```
 python3 -c 'from passlib.hash import bcrypt; import getpass; print(bcrypt.using(rounds=12, ident="2y").hash(getpass.getpass()))'
 
-obs: Será solicitada a senha que deseja ser transformada em hash. O comando acima foi executado em terminais linux com interpretadores de python(>=3.6).
+obs: Será solicitada a senha que deseja ser transformada em hash. O comando acima foi executado em terminais linux com interpretador de python(>=3.6).
 
 ```
 segue um exemplo de utilização do bcrypt para geração de hash: ![Hash generation file](/images/hash_generation.png)
