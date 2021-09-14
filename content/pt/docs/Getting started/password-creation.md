@@ -29,7 +29,7 @@ obs: Será solicitada a senha que deseja ser transformada em hash. O comando aci
 ```
 segue um exemplo de utilização do bcrypt para geração de hash: ![Hash generation file](/images/hash_generation.png)
 
-2. A hash gerada no passo anterior precisará ser inserida em `dex/base/config-map.yaml`. É possível usar um comando do kubectl para editar o configmap, segue o comando: 
+2. A hash gerada no passo anterior precisa ser inserida em `dex/base/config-map.yaml`. É possível usar um comando do kubectl para editar o configmap, segue o comando: 
 
 ```
 kubectl -n auth edit configmap dex
