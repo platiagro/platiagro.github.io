@@ -73,14 +73,15 @@ obs: Será solicitada a senha que deseja ser transformada em hash. O comando aci
 &lt;pre>&lt;code>kubectl -n auth edit configmap dex
 &lt;/code>&lt;/pre>&lt;p>segue um exemplo de trecho do configmap: &lt;img src="https://platiagro.github.io/images/configmap.png" alt="Config map file">&lt;/p>
 &lt;ol start="3">
-&lt;li>Uma vez com o configmap aberto, basta inserir o hash no seguinte trecho do arquivo:&lt;/li>
+&lt;li>Uma vez com o configmap aberto, basta inserir o email/hash no seguinte trecho do arquivo:&lt;/li>
 &lt;/ol>
 &lt;pre>&lt;code>...
 staticPasswords:
 - email: platiagro
 hash: &amp;lt;enter the generated hash here&amp;gt;
-&lt;/code>&lt;/pre>&lt;ol start="4">
-&lt;li>Reinicie o serviço e use o configmap utilizando o seguinte comando&lt;/li>
+&lt;/code>&lt;/pre>&lt;p>Exemplo de mais de um email/hash configurado: &lt;img src="https://platiagro.github.io/images/config-email-hash.png" alt="Config email hash">&lt;/p>
+&lt;ol start="4">
+&lt;li>Reinicie o serviço para que as novas senhas comecem a ser utilizadas, utilizando o seguinte comando:&lt;/li>
 &lt;/ol>
 &lt;pre>&lt;code>kubectl -n auth delete pod -l app=dex
 &lt;/code>&lt;/pre>&lt;h3 id="links-úteis">Links úteis&lt;/h3>
