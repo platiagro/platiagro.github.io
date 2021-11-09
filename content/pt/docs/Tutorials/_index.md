@@ -11,17 +11,17 @@ Guias passo-a-passo de como utilizar a PlatIAgro.
 ### Introdução à PlatIAgro
 
 Construa um fluxo de machine learning de ponta-a-ponta na PlatIAgro.<br>
-[Veja aqui](https://platiagro.github.io/tutorials/codelabs/platiagro-introduction/index.html)
+[Veja aqui](https://platiagro.github.io/tutorials/platiagro-getting-started/)
 
-### AI + IoT com PlatIAgro e dojot
+### Tarefas Nativas da PlatIAgro
 
-Combine a plataforma dojot + PlatIAgro para construir um modelo para predição de falha utilizando dados capturados de dispositivos IoT.<br>
-[Veja aqui](https://platiagro.github.io/tutorials/codelabs/platiagro-dojot/index.html)
+A PlatIAgro possui diversas tarefas nativas para Engenharia de dados, Modelagem e Visualização de Dados. Veja os detalhes cada tarefa: aplicações, configurações e parâmetros.<br>
+[Veja aqui](https://platiagro.github.io/tutorials/platiagro-tasks/)
 
 ### Introdução à Aprendizado de Máquina
 
 Aprenda sobre Tipos de Dados, Engenharia de Características e Modelagem.<br>
-[Veja aqui](https://platiagro.github.io/tutorials/codelabs/aprendizado-maquina/index.html)
+[Veja aqui](https://platiagro.github.io/tutorials/machine-learning/)
 
 ### Outros Tutoriais
 
