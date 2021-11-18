@@ -26,15 +26,13 @@ o build é realizado pelo time do Kubeflow. Consulte as instruções nos reposit
 [kubeflow/pipelines](https://github.com/kubeflow/pipelines).
 
 ### 2. Como testar o software localmente?
-Frontend: **Não possui testes unitários implementados.** Testes funcionais podem ser
-realizados seguindo as instruções no README.md do repositório
+Frontend: Os testes unitários do [web-ui](https://github.com/platiagro/web-ui#start-jest---unit-tests-dev) podem ser executados com o `yarn test` ou `npm run test`.<br>
+Testes funcionais podem ser realizados seguindo as instruções no README.md do repositório
 [web-ui](https://github.com/platiagro/web-ui).
 
-Backend: Os serviços [projects](https://github.com/platiagro/projects#testing),
+Backend: Os testes unitários dos serviços [projects](https://github.com/platiagro/projects#testing),
 [datasets](https://github.com/platiagro/datasets#testing) e o
-[SDK](https://github.com/platiagro/sdk#testing) podem ser testados com o `pytest`.<br>
-**Atenção! Defina as variáveis de ambiente e credenciais antes de rodar os testes.**
-Os testes e a API precisam desses serviços para executar com sucesso.
+[SDK](https://github.com/platiagro/sdk#testing) podem ser executados com o `pytest`.<br>
 
 ### 3. Como preparar meu ambiente de desenvolvimento?
 De forma geral, siga as instruções do README de cada repositório:
