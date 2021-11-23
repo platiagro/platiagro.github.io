@@ -53,7 +53,19 @@ Permite funcionalidades como:&lt;/p>
 &lt;li>captura de métricas e logs dentro do cluster, no ingresso e saída&lt;/li>
 &lt;/ul>
 &lt;h3 id="dex-oidchttpsdexidpio">&lt;a href="https://dexidp.io/">Dex OIDC&lt;/a>&lt;/h3>
-&lt;p>Serviço de autenticação com base no protocolo OpenID Connect.&lt;/p></description></item><item><title>Docs: Criação de senha</title><link>https://platiagro.github.io/docs/getting-started/password-creation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/password-creation/</guid><description>
+&lt;p>Serviço de autenticação com base no protocolo OpenID Connect.&lt;/p></description></item><item><title>Docs: FAQ Desenvolvedores</title><link>https://platiagro.github.io/docs/developers/skip-auth-url/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/developers/skip-auth-url/</guid><description>
+&lt;h3 id="1-como-ignorar-a-autenticação-para-certas-urls">1. Como &amp;ldquo;ignorar&amp;rdquo; a autenticação para certas URLs?&lt;/h3>
+&lt;p>Certas URLs não precisam do cookie de autenticação, ou podem ser temporariamente liberadas (para desenvolvimento, por exemplo).&lt;/p>
+&lt;p>Para isso deve-se editar o configmap &lt;code>oidc-authservice-parameters&lt;/code> no namespace &lt;code>istio-system&lt;/code>:&lt;/p>
+&lt;pre>&lt;code>kubectl -n istio-system edit configmap oidc-authservice-parameters
+&lt;/code>&lt;/pre>&lt;p>&lt;img src="https://platiagro.github.io/images/oidc-authservice-parameters.png" alt="Screenshot com exibição do comando que edita o configmap, antes de realizar as alterações.">&lt;/p>
+&lt;p>Edite o valor &lt;code>SKIP_AUTH_URI&lt;/code> com as URLs que você deseja que ignorem a autenticação. A imagem abaixo mostra um exemplo para as URLs dos serviços projects e datasets. Você pode encontrar mais detalhes sobre esta configuração &lt;a href="https://github.com/yanniszark/oidc-authservice">neste link&lt;/a>.&lt;/p>
+&lt;p>&lt;img src="https://platiagro.github.io/images/oidc-authservice-parameters-updated.png" alt="Screenshot com exibição do comando que edita o configmap, após realizar as alterações.">&lt;/p>
+&lt;p>Após editar os valores, aplique as mudanças reiniciando o serviço &lt;code>authservice-0&lt;/code> no namespace &lt;code>istio-system&lt;/code>:&lt;/p>
+&lt;pre>&lt;code>kubectl -n istio-system delete pod authservice-0
+&lt;/code>&lt;/pre>&lt;p>&lt;img src="https://platiagro.github.io/images/oidc-authservice-parameters-restart.png" alt="Screenshot com exibição do comando que reinicia o serviço.">&lt;/p>
+&lt;p>PRONTO! Você pode verificar que as URLs estão acessíveis mesmo sem o cookie de autenticação.&lt;/p>
+&lt;p>&lt;img src="https://platiagro.github.io/images/skip-auth-uri.png" alt="Screenshot com exibição do comando que reinicia o serviço.">&lt;/p></description></item><item><title>Docs: Criação de senha</title><link>https://platiagro.github.io/docs/getting-started/password-creation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/password-creation/</guid><description>
 &lt;h3 id="criação-de-login-e-senha-na-platiagro">Criação de login e senha na platiagro&lt;/h3>
 &lt;p>É altamente &lt;strong>NÃO recomendado&lt;/strong> a utilização da senha predefinida do usuário padrão da platiagro em ambientes que precisam de segurança. Dito isto, segue abaixo as recomendações de criação de senha:&lt;/p>
 &lt;ol>
