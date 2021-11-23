@@ -1,12 +1,12 @@
 ---
-title: FAQ Desenvolvedores
-linkTitle: FAQ Desenvolvedores
-weight: 11
+title: Desabilitar Autenticação
+linkTitle: Desabilitar Autenticação
+weight: 60
 description: >
-  Informações para desenvolvedores da plataforma.
+  Mais informações para sobre a autenticação na PlatIAgro.
 ---
 
-### 1. Como "ignorar" a autenticação para certas URLs?
+### 1. Como "desabilitar" a autenticação para certas URLs?
 
 Certas URLs não precisam do cookie de autenticação, ou podem ser temporariamente liberadas (para desenvolvimento, por exemplo).
 

@@ -1,7 +1,7 @@
 ---
 title: Criação de senha
 linkTitle: Criação de senha para usuário da platiagro
-weight: 20
+weight: 40
 description: >
   Veja como criar uma senha para um usuário da platiagro.
 ---

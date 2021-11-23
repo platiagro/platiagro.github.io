@@ -1,7 +1,7 @@
 ---
 title: Autenticação PlatIAgro
 linkTitle: Autenticação PlatIAgro
-weight: 30
+weight: 50
 description: >
     Autenticação para usar modelos implatados em ambiente com login.
 ---
