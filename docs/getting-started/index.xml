@@ -12,7 +12,44 @@
 &lt;h3 id="predições">Predições&lt;/h3>
 &lt;p>Com o modelo implantado, conforme novos dados de entrada chegam à PlatIAgro por uma aplicação, ela os direciona para o fluxo de tarefas associado ao projeto e realiza suas ações. Ao final, os valores estimados são devolvidos à aplicação.&lt;/p>
 &lt;h3 id="gerenciamento-e-monitoramento">Gerenciamento e monitoramento&lt;/h3>
-&lt;p>Para avaliar em tempo real os modelos de IA já implantados (em utilização), a PlatIAgro fornece uma tarefa nativa de monitoramento.&lt;/p></description></item><item><title>Docs: Criação de senha</title><link>https://platiagro.github.io/docs/getting-started/password-creation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/password-creation/</guid><description>
+&lt;p>Para avaliar em tempo real os modelos de IA já implantados (em utilização), a PlatIAgro fornece uma tarefa nativa de monitoramento.&lt;/p></description></item><item><title>Docs: Instalação da PlatIAgro</title><link>https://platiagro.github.io/docs/getting-started/install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/install/</guid><description>
+&lt;h3 id="instalação-em-um-cluster-kubernetes">Instalação em um cluster Kubernetes&lt;/h3>
+&lt;p>Certifique-se de ter os seguintes pré-requisitos antes de instalar a PlatIAgro:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Kubernetes&lt;/code> (testado com a versão &lt;code>1.18&lt;/code>) com um &lt;a href="https://kubernetes.io/docs/concepts/storage/storage-classes/">StorageClass&lt;/a>&lt;/li>
+&lt;li>&lt;code>kustomize&lt;/code> (testado com a versão &lt;code>3.2.0&lt;/code>) (&lt;a href="https://github.com/kubernetes-sigs/kustomize/releases/tag/v3.2.0">download link&lt;/a>)
+&lt;ul>
+&lt;li>PlatIAgro é construída usando o &lt;a href="https://www.kubeflow.org">Kubeflow&lt;/a>, e o Kubeflow 1.3.0 não é compatível com a versão mais recente do kustomize 4.x.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>kubectl&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Há 4 modos de instalação:&lt;/p>
+&lt;pre>&lt;code>platiagro sem autenticação e pronta para CPU.
+platiagro-gpu sem autenticação e pronta para GPU.
+platiagro-auth com autenticação e pronta para CPU.
+platiagro-gpu-auth com autenticação e pronta para GPU.
+&lt;/code>&lt;/pre>&lt;p>Ajuste a variável &lt;code>INSTALL_DIR=platiagro&lt;/code>, e então rode os seguintes comandos:&lt;/p>
+&lt;pre>&lt;code>export INSTALL_DIR=platiagro
+git clone --single-branch --branch v0.2.0-kubeflow-v1.3-branch https://github.com/platiagro/manifests.git
+cd manifests
+while ! kustomize build $INSTALL_DIR | kubectl apply -f -; do echo &amp;quot;Retrying to apply resources&amp;quot;; sleep 10; done
+&lt;/code>&lt;/pre>&lt;p>Então visite https://[LOAD-BALANCER-HOST]/&lt;/p>
+&lt;h3 id="instalação-no-google-kubernetes-engine-gke">Instalação no Google Kubernetes Engine (GKE)&lt;/h3>
+&lt;p>Visite &lt;a href="https://platiagro-gcp.herokuapp.com/">https://platiagro-gcp.herokuapp.com/&lt;/a> e siga as instruções.&lt;/p></description></item><item><title>Docs: Interface Web</title><link>https://platiagro.github.io/docs/getting-started/first-access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/first-access/</guid><description>
+&lt;p>A seguir estão algumas capturas de tela de interfaces da PlatIAgro.&lt;/p>
+&lt;h3 id="lista-de-projetos">Lista de projetos&lt;/h3>
+&lt;p>&lt;img src="https://platiagro.github.io/images/list-projects.png" alt="Lista de projetos.">&lt;/p>
+&lt;h3 id="fluxo-de-experimentos">Fluxo de experimentos&lt;/h3>
+&lt;p>&lt;img src="https://platiagro.github.io/images/experiments.png" alt="Fluxo de experimentos.">&lt;/p>
+&lt;h3 id="comparação-de-resultados">Comparação de resultados&lt;/h3>
+&lt;p>&lt;img src="https://platiagro.github.io/images/comparison.png" alt="Comparação de resultados.">&lt;/p>
+&lt;h3 id="fluxos-implantados">Fluxos implantados&lt;/h3>
+&lt;p>&lt;img src="https://platiagro.github.io/images/deployments.png" alt="Fluxo implantados.">&lt;/p>
+&lt;h3 id="lista-de-tarefas">Lista de tarefas&lt;/h3>
+&lt;p>&lt;img src="https://platiagro.github.io/images/list-tasks.png" alt="Lista de tarefas.">&lt;/p>
+&lt;h3 id="jupyterlab">JupyterLab&lt;/h3>
+&lt;p>&lt;img src="https://platiagro.github.io/images/jupyterlab.png" alt="Código fonte da tarefa no JupyterLab.">&lt;/p></description></item><item><title>Docs: Criação de senha</title><link>https://platiagro.github.io/docs/getting-started/password-creation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/password-creation/</guid><description>
 &lt;h3 id="criação-de-login-e-senha-na-platiagro">Criação de login e senha na platiagro&lt;/h3>
 &lt;p>É altamente &lt;strong>NÃO recomendado&lt;/strong> a utilização da senha predefinida do usuário padrão da platiagro em ambientes que precisam de segurança. Dito isto, segue abaixo as recomendações de criação de senha:&lt;/p>
 &lt;ol>
@@ -49,31 +86,7 @@ hash: &amp;lt;enter the generated hash here&amp;gt;
 &lt;li>Instruções sobre instalações de pacotes python: &lt;a href="https://packaging.python.org/tutorials/installing-packages/">https://packaging.python.org/tutorials/installing-packages/&lt;/a>&lt;/li>
 &lt;li>Repositório do bcrypt: &lt;a href="https://github.com/pyca/bcrypt/">https://github.com/pyca/bcrypt/&lt;/a>&lt;/li>
 &lt;li>Tutorial sobre encriptação de senhas com bcrypt: &lt;a href="https://medium.com/py-bcrypt/encriptando-senhas-em-python-com-bcrypt-25e46b5c8166">https://medium.com/py-bcrypt/encriptando-senhas-em-python-com-bcrypt-25e46b5c8166&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Instalação da PlatIAgro</title><link>https://platiagro.github.io/docs/getting-started/install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/install/</guid><description>
-&lt;h3 id="instalação-em-um-cluster-kubernetes">Instalação em um cluster Kubernetes&lt;/h3>
-&lt;p>Certifique-se de ter os seguintes pré-requisitos antes de instalar a PlatIAgro:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>Kubernetes&lt;/code> (testado com a versão &lt;code>1.18&lt;/code>) com um &lt;a href="https://kubernetes.io/docs/concepts/storage/storage-classes/">StorageClass&lt;/a>&lt;/li>
-&lt;li>&lt;code>kustomize&lt;/code> (testado com a versão &lt;code>3.2.0&lt;/code>) (&lt;a href="https://github.com/kubernetes-sigs/kustomize/releases/tag/v3.2.0">download link&lt;/a>)
-&lt;ul>
-&lt;li>PlatIAgro é construída usando o &lt;a href="https://www.kubeflow.org">Kubeflow&lt;/a>, e o Kubeflow 1.3.0 não é compatível com a versão mais recente do kustomize 4.x.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>kubectl&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;p>Há 4 modos de instalação:&lt;/p>
-&lt;pre>&lt;code>platiagro sem autenticação e pronta para CPU.
-platiagro-gpu sem autenticação e pronta para GPU.
-platiagro-auth com autenticação e pronta para CPU.
-platiagro-gpu-auth com autenticação e pronta para GPU.
-&lt;/code>&lt;/pre>&lt;p>Ajuste a variável &lt;code>INSTALL_DIR=platiagro&lt;/code>, e então rode os seguintes comandos:&lt;/p>
-&lt;pre>&lt;code>export INSTALL_DIR=platiagro
-git clone --single-branch --branch v0.2.0-kubeflow-v1.3-branch https://github.com/platiagro/manifests.git
-cd manifests
-while ! kustomize build $INSTALL_DIR | kubectl apply -f -; do echo &amp;quot;Retrying to apply resources&amp;quot;; sleep 10; done
-&lt;/code>&lt;/pre>&lt;p>Então visite https://[LOAD-BALANCER-HOST]/&lt;/p>
-&lt;h3 id="instalação-no-google-kubernetes-engine-gke">Instalação no Google Kubernetes Engine (GKE)&lt;/h3>
-&lt;p>Visite &lt;a href="https://platiagro-gcp.herokuapp.com/">https://platiagro-gcp.herokuapp.com/&lt;/a> e siga as instruções.&lt;/p></description></item><item><title>Docs: Autenticação PlatIAgro</title><link>https://platiagro.github.io/docs/getting-started/authentication/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/authentication/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Autenticação PlatIAgro</title><link>https://platiagro.github.io/docs/getting-started/authentication/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/authentication/</guid><description>
 &lt;p>O método para obter o token authservice_session para enviar solicitações de predição autenticadas ao PlatIAgro.&lt;/p>
 &lt;h3 id="usando-python">Usando Python&lt;/h3>
 &lt;p>Criar um arquivo, por exemplo, &lt;code>authpla.py&lt;/code>, e colocar o conteúdo abaixo:&lt;/p>
@@ -100,17 +113,16 @@ print(session_cookie)
 &lt;li>Retorno esperado:&lt;/li>
 &lt;/ul>
 &lt;pre>&lt;code>{'authservice_session':'MTYzMDUyNjMzM3xOd3dBTkZaVVVsazNWRFEwUlRSWFRGUkZOak5FU1RWV1MxVTBVbGhMVDBwTFRsZzNSa1ZEV1UxV1JWRTBSVXRGVUZGSU0weFpNMEU9fNUnZGVaU65-l1deO2fW6CZlMEZVcpcmXMqInjV6EFj3'}
-&lt;/code>&lt;/pre></description></item><item><title>Docs: Interface Web</title><link>https://platiagro.github.io/docs/getting-started/first-access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/first-access/</guid><description>
-&lt;p>A seguir estão algumas capturas de tela de interfaces da PlatIAgro.&lt;/p>
-&lt;h3 id="lista-de-projetos">Lista de projetos&lt;/h3>
-&lt;p>&lt;img src="https://platiagro.github.io/images/list-projects.png" alt="Lista de projetos.">&lt;/p>
-&lt;h3 id="fluxo-de-experimentos">Fluxo de experimentos&lt;/h3>
-&lt;p>&lt;img src="https://platiagro.github.io/images/experiments.png" alt="Fluxo de experimentos.">&lt;/p>
-&lt;h3 id="comparação-de-resultados">Comparação de resultados&lt;/h3>
-&lt;p>&lt;img src="https://platiagro.github.io/images/comparison.png" alt="Comparação de resultados.">&lt;/p>
-&lt;h3 id="fluxos-implantados">Fluxos implantados&lt;/h3>
-&lt;p>&lt;img src="https://platiagro.github.io/images/deployments.png" alt="Fluxo implantados.">&lt;/p>
-&lt;h3 id="lista-de-tarefas">Lista de tarefas&lt;/h3>
-&lt;p>&lt;img src="https://platiagro.github.io/images/list-tasks.png" alt="Lista de tarefas.">&lt;/p>
-&lt;h3 id="jupyterlab">JupyterLab&lt;/h3>
-&lt;p>&lt;img src="https://platiagro.github.io/images/jupyterlab.png" alt="Código fonte da tarefa no JupyterLab.">&lt;/p></description></item></channel></rss>
+&lt;/code>&lt;/pre></description></item><item><title>Docs: Desabilitar Autenticação</title><link>https://platiagro.github.io/docs/getting-started/skip-auth-url/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://platiagro.github.io/docs/getting-started/skip-auth-url/</guid><description>
+&lt;h3 id="1-como-desabilitar-a-autenticação-para-certas-urls">1. Como &amp;ldquo;desabilitar&amp;rdquo; a autenticação para certas URLs?&lt;/h3>
+&lt;p>Certas URLs não precisam do cookie de autenticação, ou podem ser temporariamente liberadas (para desenvolvimento, por exemplo).&lt;/p>
+&lt;p>Para isso deve-se editar o configmap &lt;code>oidc-authservice-parameters&lt;/code> no namespace &lt;code>istio-system&lt;/code>:&lt;/p>
+&lt;pre>&lt;code>kubectl -n istio-system edit configmap oidc-authservice-parameters
+&lt;/code>&lt;/pre>&lt;p>&lt;img src="https://platiagro.github.io/images/oidc-authservice-parameters.png" alt="Screenshot com exibição do comando que edita o configmap, antes de realizar as alterações.">&lt;/p>
+&lt;p>Edite o valor &lt;code>SKIP_AUTH_URI&lt;/code> com as URLs que você deseja que ignorem a autenticação. A imagem abaixo mostra um exemplo para as URLs dos serviços projects e datasets. Você pode encontrar mais detalhes sobre esta configuração &lt;a href="https://github.com/yanniszark/oidc-authservice">neste link&lt;/a>.&lt;/p>
+&lt;p>&lt;img src="https://platiagro.github.io/images/oidc-authservice-parameters-updated.png" alt="Screenshot com exibição do comando que edita o configmap, após realizar as alterações.">&lt;/p>
+&lt;p>Após editar os valores, aplique as mudanças reiniciando o serviço &lt;code>authservice-0&lt;/code> no namespace &lt;code>istio-system&lt;/code>:&lt;/p>
+&lt;pre>&lt;code>kubectl -n istio-system delete pod authservice-0
+&lt;/code>&lt;/pre>&lt;p>&lt;img src="https://platiagro.github.io/images/oidc-authservice-parameters-restart.png" alt="Screenshot com exibição do comando que reinicia o serviço.">&lt;/p>
+&lt;p>PRONTO! Você pode verificar que as URLs estão acessíveis mesmo sem o cookie de autenticação.&lt;/p>
+&lt;p>&lt;img src="https://platiagro.github.io/images/skip-auth-uri.png" alt="Screenshot com exibição do comando que reinicia o serviço.">&lt;/p></description></item></channel></rss>
