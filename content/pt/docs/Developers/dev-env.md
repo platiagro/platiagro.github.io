@@ -55,11 +55,13 @@ Obs: a senha podem ser visualizada com o seguinte comando:
 kubectl -n platiagro get secrets mysql-secrets --template={{.data.MYSQL_ROOT_PASSWORD}} | base64 -d
 ```
 
-**ATENÇÃO: Export por NodePort não funciona para o MySQL da PlatIAgro!**
+**ATENÇÃO 1: Expor com NodePort não funciona para o MySQL da PlatIAgro!**
+
+**ATENÇÃO 2: O processo `kubectl -n platiagro port-forward ...` geralmente finaliza após alguns minutos/horas. É necessário rodar o comando novamente para que o MySQL fique acessível.**
 
 ### 3. Autenticar-se no Kubeflow Pipelines
 
-No ambiente com a PlatIAgro, execute o seguinte comando para adicionar um header de usuário para todas requisições externas ao Kubeflow Pipelines:
+O Kubeflow pipelines precisa do header `kubeflow-userid: anonymous@kubeflow.org` para executar operações. Este header é incluído automaticamente para serviços dentro do cluster. Para incluir o header em requisições externas (ex: num ambiente de desenvolvimento, localhost) crie o seguinte [envoy-filter](https://istio.io/latest/docs/reference/config/networking/envoy-filter/) no cluster:
 
 
 ```bash
@@ -96,12 +98,53 @@ EOF
 
 ### 4. Desabilitar Autenticação (validação de cookie) em ambiente com Login
 
-Siga as instruções [deste link](https://platiagro.github.io/docs/getting-started/skip-auth-url/).
+**Por que desabilitar a autenticação?**
+- para que devs do Frontend acessem o backend da aplicação sem o cookie de login.
+- para que devs do Backend acessem Kubeflow Pipelines a partir de fora do cluster
+- para facilitar testes/integração de fluxos implantados
 
-### 5. Aumentar os limites de *eviction* do Kubernetes
+Siga as instruções [deste link](https://platiagro.github.io/docs/getting-started/skip-auth-url/) para desabilitar o login.
+
+### 5. Aumentar os limites de *eviction* do Kubernetes para ambientes com pouco espaço em disco
 
 No ambiente com a PlatIAgro, execute o seguinte comando:
 
 ```bash
 echo 'KUBELET_EXTRA_ARGS=--eviction-hard=nodefs.available<1%,nodefs.inodesFree<1%,imagefs.available<1% --image-gc-high-threshold=99' | sudo tee /etc/default/kubelet
 ```
+
+### 6. Trocar o HTTPS por HTTP no gateway de entrada
+
+Por padrão a PlatIAgro é instalada com um certificado (HTTPS) auto-assinado e acessos HTTP redirecionam para HTTPS. 
+
+Para desabilitar o HTTPS, execute os seguintes passos:
+
+Editar o gateway `kubeflow-gateway` no namespace `kubeflow`:
+
+```bash
+kubectl -n kubeflow edit gateway kubeflow-gateway
+```
+
+Ao final do arquivo, você verá o seguinte trecho:
+
+![Screenshot com exibição do comando que edita o gateway, antes de realizar as alterações.](/images/kubeflow-gateway.png)
+
+Edite o `spec` para ficar da seguinte forma:
+
+```yaml
+...
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - hosts:
+    - '*'
+    port:
+      name: http
+      number: 80
+      protocol: HTTP
+```
+
+Após salvar as alterações, a plataforma estará acessível **apenas por http.** Acessos com HTTPS retornarão erro.
+
+![Screenshot com exibição de acessos à plataforma com HTTP e HTTPS, após realizar as alterações.](/images/platiagro-http.png)
