@@ -12,7 +12,7 @@ No ambiente com a PlatIAgro, execute o seguinte comando para expor o MinIO:
 
 ```bash
 kubectl patch svc nginx --patch \
-   '{"spec": { "type": "NodePort", "ports": [ { "nodePort": 32001, "port": 80, "protocol": "TCP", "targetPort": 9000 } ] } }'
+   '{"spec": { "type": "NodePort", "ports": [ { "nodePort": 32001, "port": 9000, "protocol": "TCP", "targetPort": 9000 } ] } }'
 ```
 
 No seu ambiente de desenvolvimento, defina as seguintes variáveis de ambiente:
@@ -61,11 +61,13 @@ kubectl -n platiagro get secrets mysql-secrets --template={{.data.MYSQL_ROOT_PAS
 
 No ambiente com a PlatIAgro, execute o seguinte comando para adicionar um header de usuário para todas requisições externas ao Kubeflow Pipelines:
 
-```yaml
+
+```bash
+kubectl apply -f - <<EOF
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
-  name: lua-filter
+  name: add-kubeflow-userid-filter
   namespace: istio-system
 spec:
   workloadSelector:
@@ -89,9 +91,14 @@ spec:
           header:
             key: kubeflow-userid
             value: anonymous@kubeflow.org
+EOF
 ```
 
-### 4. Aumentar os limites de *eviction* do Kubernetes
+### 4. Desabilitar Autenticação (validação de cookie) em ambiente com Login
+
+Siga as instruções [deste link](https://platiagro.github.io/docs/getting-started/skip-auth-url/).
+
+### 5. Aumentar os limites de *eviction* do Kubernetes
 
 No ambiente com a PlatIAgro, execute o seguinte comando:
 
