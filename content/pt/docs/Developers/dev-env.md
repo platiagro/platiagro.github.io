@@ -148,3 +148,15 @@ spec:
 Após salvar as alterações, a plataforma estará acessível **apenas por http.** Acessos com HTTPS retornarão erro.
 
 ![Screenshot com exibição de acessos à plataforma com HTTP e HTTPS, após realizar as alterações.](/images/platiagro-http.png)
+
+
+### 7. Habilitar [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) nos backends da PlatIAgro
+
+Para que um desenvolvedor Frontend use o backend da aplicação, é necessário habilitar o [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+
+Edite os deployments `projects` e `datasets` no namespace `platiagro` e inclua a variável de ambiente `ENABLE_CORS=1` em ambos:
+
+```bash
+kubectl -n platiagro set env deployment/projects ENABLE_CORS=1
+kubectl -n platiagro set env deployment/datasets ENABLE_CORS=1
+```
