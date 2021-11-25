@@ -150,7 +150,7 @@ Após salvar as alterações, a plataforma estará acessível **apenas por http.
 ![Screenshot com exibição de acessos à plataforma com HTTP e HTTPS, após realizar as alterações.](/images/platiagro-http.png)
 
 
-### 7. Habilitar [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) nos backends da PlatIAgro
+### 7. Habilitar CORS nos backends da PlatIAgro
 
 Para que um desenvolvedor Frontend use o backend da aplicação, é necessário habilitar o [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
 
@@ -160,3 +160,265 @@ Edite os deployments `projects` e `datasets` no namespace `platiagro` e inclua a
 kubectl -n platiagro set env deployment/projects ENABLE_CORS=1
 kubectl -n platiagro set env deployment/datasets ENABLE_CORS=1
 ```
+
+### 8. Visualizar logs do backend da PlatIAgro
+
+Para visualizar logs do **Istio Ingress Gateway**, execute o seguinte comando:
+
+```bash
+kubectl -n istio-system logs deployment/istio-ingressgateway --tail 100 -f
+```
+
+Para visualizar logs do backend [`projects`](https://github.com/platiagro/projects), execute o seguinte comando:
+
+```bash
+kubectl -n platiagro logs deployment/projects --tail 100 -f
+```
+
+Para visualizar logs do backend [`datasets`](https://github.com/platiagro/datasets), execute o seguinte comando:
+
+```bash
+kubectl -n platiagro logs deployment/datasets --tail 100 -f
+```
+
+Para visualizar logs do **Kubeflow Pipelines**, execute o seguinte comando:
+
+```bash
+kubectl -n kubeflow logs deployment/ml-pipeline --tail 100 -f
+```
+
+
+### 9. Visualizar Workflows e Logs de no Dashboard do Argo Workflows
+
+É possível visualizar os logs e os status dos workflows no [dashboard](https://argoproj.github.io/argo-rollouts/dashboard/).
+
+Esta interface é útil para DEBUG de problemas nos experimentos, deployments e tarefas.
+
+![Screenshot com exibição do dashboard do argo workflows.](/images/argo-dashboard.png)
+
+Execute o seguinte comando para adicionar o dashboard no ambiente da PlatIAgro:
+
+```bash
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  labels:
+    app.kubernetes.io/component: argo
+    app.kubernetes.io/name: argo
+    kustomize.component: argo
+  name: argo-ui
+  namespace: kubeflow
+spec:
+  gateways:
+  - kubeflow-gateway
+  hosts:
+  - '*'
+  http:
+  - match:
+    - uri:
+        prefix: /argo/
+    rewrite:
+      uri: /
+    route:
+    - destination:
+        host: argo-ui.kubeflow.svc.cluster.local
+        port:
+          number: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: argo-ui
+    app.kubernetes.io/component: argo
+    app.kubernetes.io/name: argo
+    kustomize.component: argo
+  name: argo-ui
+  namespace: kubeflow
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: argo-ui
+      app.kubernetes.io/component: argo
+      app.kubernetes.io/name: argo
+      kustomize.component: argo
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
+      creationTimestamp: null
+      labels:
+        app: argo-ui
+        app.kubernetes.io/component: argo
+        app.kubernetes.io/name: argo
+        kustomize.component: argo
+    spec:
+      containers:
+      - env:
+        - name: ARGO_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        - name: IN_CLUSTER
+          value: "true"
+        - name: ENABLE_WEB_CONSOLE
+          value: "false"
+        - name: BASE_HREF
+          value: /argo/
+        image: argoproj/argoui:v2.3.0
+        imagePullPolicy: IfNotPresent
+        name: argo-ui
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 8001
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: argo
+      serviceAccountName: argo
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: argo-ui
+    app.kubernetes.io/component: argo
+    app.kubernetes.io/name: argo
+    kustomize.component: argo
+  name: argo-ui
+  namespace: kubeflow
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 31788
+    port: 80
+    protocol: TCP
+    targetPort: 8001
+  selector:
+    app: argo-ui
+    app.kubernetes.io/component: argo
+    app.kubernetes.io/name: argo
+    kustomize.component: argo
+  sessionAffinity: None
+  type: NodePort
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    application-crd-id: kubeflow-pipelines
+  name: argo-cluster-role
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - pods/exec
+  - pods/log
+  verbs:
+  - create
+  - get
+  - list
+  - watch
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  verbs:
+  - get
+  - watch
+  - list
+- apiGroups:
+  - ""
+  resources:
+  - persistentvolumeclaims
+  verbs:
+  - create
+  - delete
+  - get
+- apiGroups:
+  - argoproj.io
+  resources:
+  - workflows
+  - workflows/finalizers
+  verbs:
+  - get
+  - list
+  - watch
+  - update
+  - patch
+  - delete
+  - create
+- apiGroups:
+  - argoproj.io
+  resources:
+  - workflowtemplates
+  - workflowtemplates/finalizers
+  - clusterworkflowtemplates
+  - clusterworkflowtemplates/finalizers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - serviceaccounts
+  verbs:
+  - get
+  - list
+- apiGroups:
+  - argoproj.io
+  resources:
+  - cronworkflows
+  - cronworkflows/finalizers
+  verbs:
+  - get
+  - list
+  - watch
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+- apiGroups:
+  - policy
+  resources:
+  - poddisruptionbudgets
+  verbs:
+  - create
+  - get
+  - delete
+EOF
+```
+
+Acesse o dashboard do Argo Workflows no seguinte endereço: http://<hostname-ou-endedeco-ip-da-platiagro>/argo/
