@@ -67,24 +67,25 @@ kubectl -n platiagro port-forward &lt;span style="color:#000">$MYSQL&lt;/span> -
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;KUBELET_EXTRA_ARGS=--eviction-hard=nodefs.available&amp;lt;1%,nodefs.inodesFree&amp;lt;1%,imagefs.available&amp;lt;1% --image-gc-high-threshold=99&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo tee /etc/default/kubelet
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="6-trocar-o-https-por-http-no-gateway-de-entrada">6. Trocar o HTTPS por HTTP no gateway de entrada&lt;/h3>
 &lt;p>Por padrão a PlatIAgro é instalada com um certificado (HTTPS) auto-assinado e acessos HTTP redirecionam para HTTPS.&lt;/p>
-&lt;p>Para desabilitar o HTTPS, execute os seguintes passos:&lt;/p>
-&lt;p>Editar o gateway &lt;code>kubeflow-gateway&lt;/code> no namespace &lt;code>kubeflow&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl -n kubeflow edit gateway kubeflow-gateway
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ao final do arquivo, você verá o seguinte trecho:&lt;/p>
-&lt;p>&lt;img src="https://platiagro.github.io/images/kubeflow-gateway.png" alt="Screenshot com exibição do comando que edita o gateway, antes de realizar as alterações.">&lt;/p>
-&lt;p>Edite o &lt;code>spec&lt;/code> para ficar da seguinte forma:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">...&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">selector&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">istio&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ingressgateway&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">servers&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">hosts&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#4e9a06">&amp;#39;*&amp;#39;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">port&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>http&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">number&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">protocol&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>HTTP&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Após salvar as alterações, a plataforma estará acessível &lt;strong>apenas por http.&lt;/strong> Acessos com HTTPS retornarão erro.&lt;/p>
+&lt;p>Para desabilitar o HTTPS, edite o gateway &lt;code>kubeflow-gateway&lt;/code> no namespace &lt;code>kubeflow&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl apply -f - &lt;span style="color:#4e9a06">&amp;lt;&amp;lt;EOF
+&lt;/span>&lt;span style="color:#4e9a06">apiVersion: networking.istio.io/v1beta1
+&lt;/span>&lt;span style="color:#4e9a06">kind: Gateway
+&lt;/span>&lt;span style="color:#4e9a06">metadata:
+&lt;/span>&lt;span style="color:#4e9a06"> name: kubeflow-gateway
+&lt;/span>&lt;span style="color:#4e9a06"> namespace: kubeflow
+&lt;/span>&lt;span style="color:#4e9a06">spec:
+&lt;/span>&lt;span style="color:#4e9a06"> selector:
+&lt;/span>&lt;span style="color:#4e9a06"> istio: ingressgateway
+&lt;/span>&lt;span style="color:#4e9a06"> servers:
+&lt;/span>&lt;span style="color:#4e9a06"> - hosts:
+&lt;/span>&lt;span style="color:#4e9a06"> - &amp;#39;*&amp;#39;
+&lt;/span>&lt;span style="color:#4e9a06"> port:
+&lt;/span>&lt;span style="color:#4e9a06"> name: http
+&lt;/span>&lt;span style="color:#4e9a06"> number: 80
+&lt;/span>&lt;span style="color:#4e9a06"> protocol: HTTP
+&lt;/span>&lt;span style="color:#4e9a06">EOF&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Após salvar as alterações, a plataforma estará acessível &lt;strong>apenas por http.&lt;/strong> Acessos com HTTPS retornarão erro.&lt;/p>
 &lt;p>&lt;img src="https://platiagro.github.io/images/platiagro-http.png" alt="Screenshot com exibição de acessos à plataforma com HTTP e HTTPS, após realizar as alterações.">&lt;/p>
 &lt;h3 id="7-habilitar-cors-nos-backends-da-platiagro">7. Habilitar CORS nos backends da PlatIAgro&lt;/h3>
 &lt;p>Para que um desenvolvedor Frontend use o backend da aplicação, é necessário habilitar o &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">CORS&lt;/a>.&lt;/p>
@@ -100,7 +101,7 @@ kubectl -n platiagro &lt;span style="color:#204a87">set&lt;/span> env deployment
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl -n platiagro logs deployment/datasets --tail &lt;span style="color:#0000cf;font-weight:bold">100&lt;/span> -f
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Para visualizar logs do &lt;strong>Kubeflow Pipelines&lt;/strong>, execute o seguinte comando:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl -n kubeflow logs deployment/ml-pipeline --tail &lt;span style="color:#0000cf;font-weight:bold">100&lt;/span> -f
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="9-visualizar-workflows-e-logs-de-no-dashboard-do-argo-workflows">9. Visualizar Workflows e Logs de no Dashboard do Argo Workflows&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="9-visualizar-pipelines-e-logs-do-kubeflow-no-dashboard-do-argo-workflows">9. Visualizar Pipelines e Logs do Kubeflow no Dashboard do Argo Workflows&lt;/h3>
 &lt;p>É possível visualizar os logs e os status dos workflows no &lt;a href="https://argoproj.github.io/argo-rollouts/dashboard/">dashboard&lt;/a>.&lt;/p>
 &lt;p>Esta interface é útil para DEBUG de problemas nos experimentos, deployments e tarefas.&lt;/p>
 &lt;p>&lt;img src="https://platiagro.github.io/images/argo-dashboard.png" alt="Screenshot com exibição do dashboard do argo workflows.">&lt;/p>
