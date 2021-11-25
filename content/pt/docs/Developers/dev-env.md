@@ -117,22 +117,15 @@ echo 'KUBELET_EXTRA_ARGS=--eviction-hard=nodefs.available<1%,nodefs.inodesFree<1
 
 Por padrão a PlatIAgro é instalada com um certificado (HTTPS) auto-assinado e acessos HTTP redirecionam para HTTPS. 
 
-Para desabilitar o HTTPS, execute os seguintes passos:
-
-Editar o gateway `kubeflow-gateway` no namespace `kubeflow`:
+Para desabilitar o HTTPS, edite o gateway `kubeflow-gateway` no namespace `kubeflow`:
 
 ```bash
-kubectl -n kubeflow edit gateway kubeflow-gateway
-```
-
-Ao final do arquivo, você verá o seguinte trecho:
-
-![Screenshot com exibição do comando que edita o gateway, antes de realizar as alterações.](/images/kubeflow-gateway.png)
-
-Edite o `spec` para ficar da seguinte forma:
-
-```yaml
-...
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: kubeflow-gateway
+  namespace: kubeflow
 spec:
   selector:
     istio: ingressgateway
@@ -143,6 +136,7 @@ spec:
       name: http
       number: 80
       protocol: HTTP
+EOF
 ```
 
 Após salvar as alterações, a plataforma estará acessível **apenas por http.** Acessos com HTTPS retornarão erro.
@@ -188,7 +182,7 @@ kubectl -n kubeflow logs deployment/ml-pipeline --tail 100 -f
 ```
 
 
-### 9. Visualizar Workflows e Logs de no Dashboard do Argo Workflows
+### 9. Visualizar Pipelines e Logs do Kubeflow no Dashboard do Argo Workflows
 
 É possível visualizar os logs e os status dos workflows no [dashboard](https://argoproj.github.io/argo-rollouts/dashboard/).
 
